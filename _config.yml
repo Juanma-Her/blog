@@ -1,0 +1,12 @@
+# Placeholder config for M0 (BLG-04). The full config arrives in BLG-10.
+title: "~/strinix"
+url: "https://strinix.com.ar"
+timezone: "America/Argentina/Buenos_Aires"
+
+exclude:
+  - README.md
+  - LICENSE
+  - LICENSE-content
+  - Gemfile
+  - Gemfile.lock
+  - vendor
