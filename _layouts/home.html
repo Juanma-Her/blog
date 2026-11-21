@@ -1,15 +1,8 @@
 ---
 layout: base
 ---
-{%- assign posts = site.posts | where: "lang", page.lang -%}
+{%- assign posts = page.lang | posts_for -%}
 {%- assign cards = posts | slice: 1, site.home_cards -%}
-{%- assign tags_in_cards = cards | map: "tags" | uniq -%}
-{%- assign topics = "" | split: "" -%}
-{%- for topic in site.data.topics -%}
-  {%- unless topic[1].hidden -%}
-    {%- if tags_in_cards contains topic[0] %}{% assign topics = topics | push: topic[0] %}{% endif -%}
-  {%- endunless -%}
-{%- endfor -%}
 {%- if page.lang == "es" %}{% assign prefix = "/es" %}{% else %}{% assign prefix = "" %}{% endif -%}
 
 <div class="container home">
@@ -22,7 +15,7 @@ layout: base
     <div class="section-head">
       <h2 id="recent-heading">{{ "home.recent" | t: page.lang }}</h2>
       {%- assign label = "home.filter_label" | t: page.lang %}
-      {% include chips.html values=topics label=label %}
+      {% include chips.html posts=cards label=label %}
     </div>
     <div class="card-grid">
       {%- for post in cards %}

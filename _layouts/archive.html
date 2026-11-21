@@ -1,0 +1,36 @@
+---
+layout: base
+---
+{%- assign posts = page.lang | posts_for -%}
+{%- assign years = posts | group_by_exp: "post", "post.date | date: '%Y'" -%}
+{%- assign this_year = site.time | date: "%Y" -%}
+{%- assign first_year = posts.last.date | date: "%Y" -%}
+
+<div class="container container--narrow archive" data-filter-root data-filter-param="topic">
+  <div class="archive-intro">
+    <h1>{{ "archive.heading" | t: page.lang }}</h1>
+    <p>{{ "archive.intro" | t: page.lang, n: posts.size, year: first_year }}</p>
+    <label class="archive-search">
+      <span class="visually-hidden">{{ "archive.search_label" | t: page.lang }}</span>
+      {% include icon-search.html %}
+      <input type="search" data-filter-search placeholder="{{ 'archive.search_placeholder' | t: page.lang }}">
+      <kbd aria-hidden="true">/</kbd>
+    </label>
+    {%- assign label = "home.filter_label" | t: page.lang %}
+    {% include chips.html posts=posts label=label dots=true %}
+  </div>
+
+  {%- for year in years %}
+  <section class="archive-year" data-filter-group aria-labelledby="year-{{ year.name }}">
+    <h2 id="year-{{ year.name }}"{% if year.name == this_year %} class="is-current"{% endif %}>{{ year.name }}</h2>
+    <ul>
+      {%- for post in year.items %}
+      {% include archive-row.html post=post %}
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endfor %}
+
+  <p class="archive-empty" data-filter-empty hidden>{{ "archive.no_results" | t: page.lang }}</p>
+  <p class="visually-hidden" data-filter-status aria-live="polite"></p>
+</div>

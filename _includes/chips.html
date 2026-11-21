@@ -1,10 +1,24 @@
 {%- comment -%}
-  Filter chips (JSON contracts 6.2). include.values: topic keys; include.label:
-  accessible name of the group. Filtering itself is added in BLG-31.
+  Filter chips (JSON contracts 6.2). include.label: accessible name of the group.
+  include.posts: one chip per visible topic used by these posts, in topics.json
+  order. include.values: topic keys, when the caller picks them itself.
+  include.dots: a dot in the topic's colour before each label (archive).
+  Filtering itself is added in BLG-31.
 {%- endcomment -%}
+{%- assign values = include.values -%}
+{%- if include.posts -%}
+  {%- assign tags = include.posts | map: "tags" | uniq -%}
+  {%- assign values = "" | split: "" -%}
+  {%- for topic in site.data.topics -%}
+    {%- if tags contains topic[0] %}{% unless topic[1].hidden %}{% assign values = values | push: topic[0] %}{% endunless %}{% endif -%}
+  {%- endfor -%}
+{%- endif -%}
 <div class="chips" role="group" aria-label="{{ include.label }}" data-filter-chips>
   <button class="chip" type="button" data-filter-value="" aria-pressed="true">{{ "archive.all" | t: page.lang }}</button>
-  {%- for value in include.values %}
-  <button class="chip" type="button" data-filter-value="{{ value }}" aria-pressed="false">{{ site.data.topics[value].label | localize: page.lang }}</button>
+  {%- for value in values %}
+  {%- assign topic = site.data.topics[value] %}
+  <button class="chip" type="button" data-filter-value="{{ value }}" aria-pressed="false">
+    {%- if include.dots %}<span class="chip-dot" aria-hidden="true" style="--topic-bar: light-dark({{ topic.light_bar }}, {{ topic.dark }})"></span>{% endif -%}
+    {{ topic.label | localize: page.lang }}</button>
   {%- endfor %}
 </div>

@@ -1,0 +1,20 @@
+{%- comment -%}
+  One archive row (Design 6.3) with the filter attributes (JSON contracts 6.2).
+  include.post: the post.
+{%- endcomment -%}
+{%- assign post = include.post -%}
+{%- assign tag = post.tags | first -%}
+{%- assign minutes = post.content | read_minutes -%}
+{%- assign text = post.tags | join: " " | prepend: " " | prepend: post.title | append: " " | append: post.description -%}
+<li class="archive-row" data-filter-item data-filter-key="{{ post.tags | join: ' ' }}" data-filter-text="{{ text | filter_text }}">
+  <a href="{{ post.url }}">
+    <time class="archive-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | localize_date: page.lang, "short_format" }}</time>
+    <span class="archive-main">
+      <span class="archive-head">
+        <span class="archive-title" lang="{{ post.lang }}">{{ post.title }}</span>
+        <span class="archive-meta">{% include topic.html tag=tag %}<span>{{ "post.minutes" | t: page.lang, n: minutes }}</span>{% include lang-badge.html post=post %}</span>
+      </span>
+      <span class="archive-summary" lang="{{ post.lang }}">{{ post.description }}</span>
+    </span>
+  </a>
+</li>

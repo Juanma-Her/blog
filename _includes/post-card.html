@@ -3,7 +3,7 @@
 {%- assign minutes = post.content | read_minutes -%}
 <a class="post-card" href="{{ post.url }}" data-filter-item data-filter-key="{{ post.tags | join: ' ' }}">
   {% include topic.html tag=tag %}
-  <span class="post-card-title">{{ post.title }}</span>
-  <span class="post-card-summary">{{ post.description }}</span>
-  <span class="post-card-meta">{{ post.date | localize_date: page.lang }} · {{ "post.minutes" | t: page.lang, n: minutes }}</span>
+  <span class="post-card-title" lang="{{ post.lang }}">{{ post.title }}</span>
+  <span class="post-card-summary" lang="{{ post.lang }}">{{ post.description }}</span>
+  <span class="post-card-meta">{{ post.date | localize_date: page.lang }} · {{ "post.minutes" | t: page.lang, n: minutes }} {% include lang-badge.html post=post %}</span>
 </a>

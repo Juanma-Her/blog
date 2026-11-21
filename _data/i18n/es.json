@@ -33,7 +33,8 @@
     "by": "Por {author}",
     "edit_text": "Cada post es un archivo Markdown en el repositorio.",
     "previous": "Anterior",
-    "next": "Siguiente"
+    "next": "Siguiente",
+    "only_in_default": "Solo en inglés"
   },
   "comments": {
     "heading": "Comentarios",
@@ -42,6 +43,7 @@
   },
   "archive": {
     "heading": "Todos los posts",
+    "intro": "Todo lo que escribí, del más nuevo al más viejo. {n} posts desde {year}.",
     "search_label": "Buscar posts",
     "search_placeholder": "Buscar en títulos, etiquetas y resúmenes…",
     "all": "Todos",
@@ -56,6 +58,7 @@
   },
   "date": {
     "format": "%-d %b %Y",
+    "short_format": "%-d %b",
     "months": [
       "ene",
       "feb",

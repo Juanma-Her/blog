@@ -17,7 +17,7 @@ layout: base
 {%- assign previous = posts[previous_index] -%}
 {%- if index > 0 %}{% assign next = posts[next_index] %}{% else %}{% assign next = nil %}{% endif -%}
 
-{%- assign related = posts | where_exp: "post", "post.tags.first == tag" | where_exp: "post", "post.url != page.url" | slice: 0, site.more_on_count -%}
+{%- assign related = lang | posts_for | where_exp: "post", "post.tags.first == tag" | where_exp: "post", "post.ref != page.ref" | slice: 0, site.more_on_count -%}
 {%- assign forge = site.forges.github -%}
 
 <article class="post container container--narrow">

@@ -7,6 +7,8 @@
 # - t:             {{ "post.read_time" | t: page.lang, n: 12 }}
 # - localize:      {{ project.description | localize: page.lang }}
 # - localize_date: {{ page.date | localize_date: page.lang }}
+# - posts_for:     {{ page.lang | posts_for }}, newest first: the posts in that
+#                  language plus default-language posts not yet translated to it.
 
 module Strinix
   class Translations < Jekyll::Generator
@@ -40,11 +42,21 @@ module Strinix
       value.fetch(lang) { raise Jekyll::Errors::FatalException, "No #{lang} text in #{value.inspect}" }
     end
 
-    def localize_date(date, lang)
+    # {{ date | localize_date: lang }}, or with "short_format" for no year.
+    def localize_date(date, lang, format_key = "format")
       date = Jekyll::Utils.parse_date(date.to_s) unless date.respond_to?(:strftime)
-      format = strings(lang).dig("date", "format")
+      format = strings(lang).dig("date", format_key)
       month = strings(lang).dig("date", "months")[date.month - 1]
       date.strftime(format.gsub("%b", month))
+    end
+
+    def posts_for(lang)
+      site = @context.registers[:site]
+      default = site.config["default_lang"]
+      site.posts.docs.reverse.select do |post|
+        post_lang = post.data["lang"]
+        post_lang == lang || (post_lang == default && !post.data.dig("translations", lang))
+      end
     end
 
     private

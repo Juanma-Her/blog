@@ -1,0 +1,7 @@
+{%- comment -%}
+  "EN" next to a post listed in another language's page (posts_for).
+  include.post: the post.
+{%- endcomment -%}
+{%- if include.post.lang != page.lang -%}
+<span class="lang-badge"><span aria-hidden="true">{{ include.post.lang | upcase }}</span><span class="visually-hidden">{{ "post.only_in_default" | t: page.lang }}</span></span>
+{%- endif -%}

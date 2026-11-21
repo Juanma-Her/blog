@@ -33,7 +33,8 @@
     "by": "By {author}",
     "edit_text": "Every post is a Markdown file in the repository.",
     "previous": "Previous",
-    "next": "Next"
+    "next": "Next",
+    "only_in_default": "Only in English"
   },
   "comments": {
     "heading": "Comments",
@@ -42,6 +43,7 @@
   },
   "archive": {
     "heading": "All posts",
+    "intro": "Everything I've written, newest first. {n} posts since {year}.",
     "search_label": "Search posts",
     "search_placeholder": "Search titles, tags and summaries…",
     "all": "All",
@@ -56,6 +58,7 @@
   },
   "date": {
     "format": "%b %-d, %Y",
+    "short_format": "%b %-d",
     "months": [
       "Jan",
       "Feb",
