@@ -116,5 +116,30 @@
     "team": "Team repo",
     "more_heading": "More on Codeberg and GitHub",
     "more_text": "Experiments and half-finished things"
+  },
+  "about": {
+    "eyebrow": "About",
+    "links_label": "Elsewhere",
+    "email": "Email",
+    "rss_feed": "RSS feed",
+    "details": {
+      "based": "based",
+      "writes": "writes",
+      "editor": "editor",
+      "team": "team"
+    },
+    "experience": "Experience",
+    "present": "now",
+    "elsewhere": "Talks & writing elsewhere",
+    "competitions": "Competitions & hackathons",
+    "kinds": {
+      "scc": "SCC",
+      "hackathon": "Hackathon"
+    },
+    "interested_text": "Putting together a hackathon team?",
+    "interested_link": "I'm interested",
+    "skills": "Things I work with",
+    "hello_heading": "Say hello",
+    "hello_text": "Questions about a post, or just want to talk shop? Email is the best way to reach me."
   }
 }

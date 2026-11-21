@@ -41,9 +41,13 @@
       }
     ]
   },
+  "headline": {
+    "en": "I build systems and write down what I learn.",
+    "es": "Armo sistemas y escribo lo que aprendo."
+  },
   "intro": {
-    "en": "I write about the **systems** I build and break.",
-    "es": "Escribo sobre los **sistemas** que armo y rompo."
+    "en": "I study [degree] at [University] and spend most of my free time on **HPC** and **Rust**.\n\nThis blog is where I write down what I learn, so I can find it later and so you can skip the parts I got wrong.",
+    "es": "Estudio [carrera] en [Universidad] y paso casi todo mi tiempo libre con **HPC** y **Rust**.\n\nEste blog es donde anoto lo que aprendo, para encontrarlo después y para que te ahorres las partes en las que me equivoqué."
   },
   "experience": [
     {

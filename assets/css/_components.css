@@ -535,8 +535,8 @@
   font: 12px var(--font-mono);
 }
 
-.type--tool      { --type: light-dark(#076678, #83a598); }
-.type--hpc       { --type: light-dark(#8f3f71, #d3869b); }
+.type--tool, .type--scc { --type: light-dark(#076678, #83a598); }
+.type--hpc { --type: light-dark(#8f3f71, #d3869b); }
 .type--hackathon { --type: light-dark(#af3a03, #fe8019); }
 
 /* Active and maintained get a dot; finished and archived are plain text. */
@@ -566,3 +566,125 @@
 .project-more strong { color: var(--text); font-weight: 600; }
 .project-more span { font-size: 14px; }
 .project-more .project-links { justify-content: center; gap: 0 20px; margin-top: 0; }
+
+/* About (BLG-24) */
+
+.about { display: flex; flex-direction: column; gap: 64px; padding-top: 48px; }
+.about section:not(.follow) { display: flex; flex-direction: column; gap: 16px; }
+.about-top { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 48px; }
+
+.profile-card {
+  flex: 0 1 380px;
+  max-width: 100%;
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card);
+}
+
+.profile-photo { display: block; width: 100%; height: 280px; object-fit: cover; background: var(--border); }
+.profile-body { display: flex; flex-direction: column; gap: 16px; padding: 24px; }
+.profile-name { font-family: var(--font-heading); font-size: 24px; font-weight: 700; }
+.profile-role { color: var(--text-2); }
+
+.profile-details { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; margin: 0; font-size: 15px; }
+.profile-details dt { padding-top: 2px; color: var(--meta); font: 13px var(--font-mono); }
+.profile-details dd { margin: 0; }
+
+.profile-links { display: flex; flex-direction: column; padding-top: 8px; border-top: 1px solid var(--border-strong); }
+.profile-links a { display: flex; justify-content: space-between; padding-block: 10px; font-weight: 500; }
+.profile-links span { color: var(--meta); }
+
+.about-main { flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 56px; }
+.about .about-intro { gap: 18px; }
+.about-intro h1 { font-size: clamp(2.25rem, 5.5vw, 3rem); line-height: 1.1; }
+.about-intro p:not(.eyebrow) { font-size: 18px; line-height: 1.75; }
+.about-intro strong { font-weight: 600; }
+.eyebrow { color: var(--accent); font: 13px var(--font-mono); }
+
+.about-main section:not(.about-intro) { gap: 24px; }
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin: 0;
+  padding: 0 0 0 28px;
+  border-left: 2px solid var(--border-strong);
+  list-style: none;
+}
+
+.timeline li { position: relative; display: flex; flex-direction: column; gap: 4px; }
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: -39px;
+  width: 14px;
+  height: 14px;
+  border: 3px solid var(--bg);
+  border-radius: 50%;
+  background: var(--border-strong);
+}
+
+.timeline li.is-current::before { background: var(--accent); }
+.timeline-dates { color: var(--meta); font: 13px var(--font-mono); }
+.timeline-title { font-family: var(--font-heading); font-size: 20px; font-weight: 700; }
+.timeline-summary { color: var(--text-2); }
+
+.about-list { margin: 0; padding: 0; list-style: none; }
+.about-list li { border-bottom: 1px solid var(--border); }
+.about-list li:first-child { border-top: 1px solid var(--border); }
+.about-list a, .competitions li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding-block: 14px; }
+.about-list-title { font-weight: 500; }
+.about-list-meta { color: var(--meta); font: 13px var(--font-mono); }
+
+.competitions li { align-items: center; gap: 6px 14px; }
+.competitions li:first-child { border-top: 0; }
+.competitions .about-list-title { flex: 1 1 260px; }
+
+.team-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 20px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+}
+
+.team-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.team-card > div { flex: 1 1 300px; display: flex; flex-direction: column; gap: 2px; }
+.team-name { font-family: var(--font-heading); font-size: 20px; font-weight: 700; }
+.team-summary { color: var(--text-2); font-size: 15px; }
+
+.interested { color: var(--text-2); font-size: 15px; }
+.interested a { padding-block: 10px; color: var(--accent); font-weight: 500; }
+
+.skills { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; font: 14px var(--font-mono); }
+
+.skills li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+}
+
+.skills .chip-dot:not([style]) { background: var(--meta); }
+
+.about .follow h2 { font-size: 28px; }

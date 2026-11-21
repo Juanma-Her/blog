@@ -1,0 +1,112 @@
+---
+layout: base
+---
+{%- assign lang = page.lang -%}
+{%- assign about = site.data.about -%}
+{%- assign profile = about.profile -%}
+{%- assign strings = site.data.i18n[lang].about -%}
+{%- if lang == "es" %}{% assign prefix = "/es" %}{% else %}{% assign prefix = "" %}{% endif -%}
+{%- assign photo = site.static_files | where: "path", profile.photo | first -%}
+{%- assign subject = about.competitions.interested_subject | localize: lang | replace: " ", "%20" -%}
+
+<div class="container about">
+  <div class="about-top">
+    <aside class="profile-card">
+      {%- if photo %}
+      <img class="profile-photo" src="{{ profile.photo }}" alt="{{ profile.photo_alt | localize: lang }}" width="380" height="280">
+      {%- else %}
+      <div class="profile-photo" aria-hidden="true"></div>
+      {%- endif %}
+      <div class="profile-body">
+        <div>
+          <p class="profile-name">{{ site.author.name }}</p>
+          <p class="profile-role">{{ profile.role | localize: lang }}</p>
+        </div>
+        <dl class="profile-details">
+          {%- for detail in profile.details %}
+          <dt>{{ strings.details[detail.key] }}</dt><dd>{{ detail.value | localize: lang }}</dd>
+          {%- endfor %}
+        </dl>
+        <nav class="profile-links" aria-label="{{ strings.links_label }}">
+          {%- capture arrow %}<span aria-hidden="true">↗</span>{% endcapture %}
+          <a href="https://codeberg.org/{{ site.forges.codeberg.user }}">Codeberg{{ arrow }}</a>
+          <a href="https://github.com/{{ site.forges.github.user }}">GitHub{{ arrow }}</a>
+          <a href="mailto:{{ site.email }}">{{ strings.email }}{{ arrow }}</a>
+          <a href="{{ prefix }}/feed/">{{ strings.rss_feed }}{{ arrow }}</a>
+        </nav>
+      </div>
+    </aside>
+
+    <div class="about-main">
+      <section class="about-intro">
+        <p class="eyebrow">{{ strings.eyebrow }}</p>
+        <h1>{{ about.headline | localize: lang }}</h1>
+        {{ about.intro | localize: lang | markdownify }}
+      </section>
+
+      <section aria-labelledby="experience-heading">
+        <h2 id="experience-heading">{{ strings.experience }}</h2>
+        <ol class="timeline">
+          {%- for job in about.experience %}
+          <li{% if job.end == nil %} class="is-current"{% endif %}>
+            <span class="timeline-dates">{{ job.start | slice: 0, 4 }} – {% if job.end %}{{ job.end | slice: 0, 4 }}{% else %}{{ strings.present }}{% endif %}</span>
+            <span class="timeline-title">{{ job.title | localize: lang }} · {{ job.org }}</span>
+            <span class="timeline-summary">{{ job.summary | localize: lang | markdownify | remove: "<p>" | remove: "</p>" | strip }}</span>
+          </li>
+          {%- endfor %}
+        </ol>
+      </section>
+    </div>
+  </div>
+
+  {%- if about.elsewhere.size > 0 %}
+  <section aria-labelledby="elsewhere-heading">
+    <h2 id="elsewhere-heading">{{ strings.elsewhere }}</h2>
+    <ul class="about-list">
+      {%- for item in about.elsewhere %}
+      <li><a href="{{ item.url }}"><span class="about-list-title">{{ item.title }}</span><span class="about-list-meta">{{ item.venue }} · {{ item.date | slice: 0, 4 }}</span></a></li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endif %}
+
+  <section aria-labelledby="competitions-heading">
+    <h2 id="competitions-heading">{{ strings.competitions }}</h2>
+    {%- assign team = about.competitions.team %}
+    <div class="team-card">
+      <span class="team-icon">{% include icon-server.html %}</span>
+      <div>
+        <p class="team-name">{% if team.url %}<a href="{{ team.url }}">{{ team.name }}</a>{% else %}{{ team.name }}{% endif %}</p>
+        <p class="team-summary">{{ team.summary | localize: lang | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
+      </div>
+    </div>
+    <ul class="about-list competitions">
+      {%- for entry in about.competitions.entries %}
+      <li>
+        <span class="type-pill type--{{ entry.kind }}">{{ strings.kinds[entry.kind] }}</span>
+        <span class="about-list-title">{% if entry.url %}<a href="{{ entry.url }}">{{ entry.event }}</a>{% else %}{{ entry.event }}{% endif %} · {{ entry.date | slice: 0, 4 }}</span>
+        <span class="about-list-meta">{% if entry.result %}{{ entry.result | localize: lang }}{% else %}{{ entry.role | localize: lang }}{% endif %}</span>
+      </li>
+      {%- endfor %}
+    </ul>
+    <p class="interested">{{ strings.interested_text }} <a href="mailto:{{ site.email }}?subject={{ subject }}">{{ strings.interested_link }} →</a></p>
+  </section>
+
+  <section aria-labelledby="skills-heading">
+    <h2 id="skills-heading">{{ strings.skills }}</h2>
+    <ul class="skills">
+      {%- for skill in about.skills %}
+      {%- assign topic = site.data.topics[skill.topic] %}
+      <li><span class="chip-dot" aria-hidden="true"{% if topic %} style="--topic-bar: light-dark({{ topic.light_bar }}, {{ topic.dark }})"{% endif %}></span>{{ skill.label }}</li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section class="follow" aria-labelledby="hello-heading">
+    <div>
+      <h2 id="hello-heading">{{ strings.hello_heading }}</h2>
+      <p>{{ strings.hello_text }}</p>
+    </div>
+    <a class="button button--accent" href="mailto:{{ site.email }}">{{ site.email }}</a>
+  </section>
+</div>

@@ -116,5 +116,30 @@
     "team": "Repo del equipo",
     "more_heading": "Más en Codeberg y GitHub",
     "more_text": "Experimentos y cosas a medio terminar"
+  },
+  "about": {
+    "eyebrow": "Sobre mí",
+    "links_label": "En otros lados",
+    "email": "Correo",
+    "rss_feed": "Feed RSS",
+    "details": {
+      "based": "vive en",
+      "writes": "escribe",
+      "editor": "editor",
+      "team": "equipo"
+    },
+    "experience": "Experiencia",
+    "present": "hoy",
+    "elsewhere": "Charlas y textos en otros lados",
+    "competitions": "Competencias y hackathons",
+    "kinds": {
+      "scc": "SCC",
+      "hackathon": "Hackathon"
+    },
+    "interested_text": "¿Estás armando un equipo para una hackathon?",
+    "interested_link": "Me interesa",
+    "skills": "Con lo que trabajo",
+    "hello_heading": "Escribime",
+    "hello_text": "¿Preguntas sobre un post, o ganas de charlar de código? El correo es la mejor forma de contactarme."
   }
 }
