@@ -1,0 +1,14 @@
+{%- if page.lang == "es" %}{% assign home = "/es/" %}{% else %}{% assign home = "/" %}{% endif -%}
+{%- assign nav = "posts,projects,about" | split: "," -%}
+<header class="site-header container">
+  <a class="logo" href="{{ home }}" aria-label="{{ site.title }}, home"><span class="logo-prefix">~/</span>{{ site.title | remove_first: "~/" }}</a>
+  <nav class="site-nav" aria-label="Main">
+    {%- for item in nav %}
+    {%- assign url = home | append: item | append: "/" %}
+    <a href="{{ url }}"{% if page.url == url %} aria-current="page"{% elsif page.url contains url %} aria-current="true"{% endif %}>{{ item | capitalize }}</a>
+    {%- endfor %}
+    {%- assign url = home | append: "feed/" %}
+    <a class="nav-rss" href="{{ url }}"{% if page.url == url %} aria-current="page"{% endif %}>RSS</a>
+    {% include theme-toggle.html %}
+  </nav>
+</header>

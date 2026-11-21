@@ -1,18 +1,9 @@
-<!doctype html>
-{%- comment -%}
-  Placeholder so posts build without warnings (BLG-10).
-  Replaced by the base layout in BLG-13 and the post layout in BLG-21.
-{%- endcomment %}
-<html lang="{{ page.lang }}">
-<head>
-{% include head.html %}
-</head>
-<body>
-{% include theme-toggle.html %}
-<main>
+---
+layout: base
+---
+{%- comment -%} Placeholder body until the post layout of BLG-21. {%- endcomment %}
+<article class="container container--narrow">
 <h1>{{ page.title }}</h1>
 <p><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time> · {{ page.tags | join: ", " }}</p>
 {{ content }}
-</main>
-</body>
-</html>
+</article>
