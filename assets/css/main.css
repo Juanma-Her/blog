@@ -5,3 +5,4 @@
 {% include_relative _tokens.css %}
 {% include_relative _base.css %}
 {% include_relative _components.css %}
+{% include_relative _syntax.css %}

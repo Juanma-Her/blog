@@ -1,0 +1,21 @@
+/* Syntax colours (Design document 4.2). Rouge emits these classes. */
+
+.highlight .k, .highlight .kd, .highlight .kn, .highlight .kp,
+.highlight .kr, .highlight .kv, .highlight .ow          { color: light-dark(#9d0006, #fb4934); }  /* keywords */
+.highlight .nf, .highlight .fm, .highlight .s,
+.highlight .s1, .highlight .s2, .highlight .sb,
+.highlight .sc, .highlight .sd, .highlight .sh,
+.highlight .sx, .highlight .ss, .highlight .sa           { color: light-dark(#427b58, #b8bb26); }  /* functions, strings */
+.highlight .se, .highlight .si, .highlight .sr          { color: light-dark(#af3a03, #fe8019); }  /* escapes, interpolation, regex */
+.highlight .nb, .highlight .bp, .highlight .o,
+.highlight .na, .highlight .nt                          { color: light-dark(#076678, #83a598); }  /* built-ins, operators, attributes */
+.highlight .kt, .highlight .nc                          { color: light-dark(#af3a03, #fe8019); }  /* types */
+.highlight .m, .highlight .mi, .highlight .mf,
+.highlight .mh, .highlight .mo, .highlight .mb,
+.highlight .il                                          { color: light-dark(#8f3f71, #d3869b); }  /* numbers */
+.highlight .cp, .highlight .cpf, .highlight .nd         { color: light-dark(#427b58, #8ec07c); }  /* preprocessor, decorators */
+.highlight .c, .highlight .c1, .highlight .cm,
+.highlight .cs, .highlight .ch                          { color: light-dark(#665c54, #928374); font-style: italic; }  /* comments */
+.highlight .gp                                          { color: var(--meta); }  /* shell prompt */
+.highlight .gd                                          { color: light-dark(#9d0006, #fb4934); }  /* diff: removed */
+.highlight .gi                                          { color: light-dark(#79740e, #b8bb26); }  /* diff: added */

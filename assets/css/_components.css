@@ -314,6 +314,7 @@
 /* Post (BLG-21) */
 
 .post { display: flex; flex-direction: column; gap: 48px; padding-top: 48px; }
+.post > * { min-width: 0; } /* a long code line scrolls in its block, never widens the page */
 
 .post-header { display: flex; flex-direction: column; gap: 20px; }
 
@@ -381,6 +382,36 @@
   font-size: 14px;
   line-height: 1.7;
 }
+
+/* Code figure (BLG-30): caption with file name or language, and the copy button. */
+.prose figure.code { margin-inline: 0; overflow: hidden; border: 1px solid var(--border); border-radius: 12px; background: var(--code-bg); }
+
+.code figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 8px 0 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--meta);
+  font: 13px var(--font-mono);
+}
+
+.code .copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 44px;
+  padding: 0 10px;
+  border: 0;
+  background: none;
+  color: var(--text-2);
+  font: inherit;
+  cursor: pointer;
+}
+
+.code .copy:hover { color: var(--accent); }
+.prose .code pre { margin: 0; border: 0; border-radius: 0; background: none; }
 
 .prose table { width: 100%; border-collapse: collapse; font-size: 15px; display: block; overflow-x: auto; }
 .prose th, .prose td { padding: 8px 12px; border-bottom: 1px solid var(--border); text-align: left; }

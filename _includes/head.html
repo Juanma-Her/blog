@@ -11,6 +11,9 @@
 {%- endif %}
 <script type="module" src="/assets/js/theme.js"></script>
 <script type="module" src="/assets/js/lang-switch.js"></script>
+{%- if page.collection == "posts" %}
+<script type="module" src="/assets/js/copy.js"></script>
+{%- endif %}
 {%- if page.lang == "es" %}{% assign feed = "/es/feed.xml" %}{% else %}{% assign feed = "/feed.xml" %}{% endif %}
 <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ feed }}">
 {%- if page.translations.size > 1 %}
