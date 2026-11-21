@@ -11,7 +11,7 @@ layout: base
   {%- endif %}
 
   {%- if cards.size > 0 %}
-  <section class="recent" aria-labelledby="recent-heading" data-filter-root data-filter-param="topic">
+  <section class="recent" aria-labelledby="recent-heading" data-filter-root data-filter-param="topic" data-filter-results="{{ 'archive.results' | t: page.lang }}" data-filter-results-one="{{ 'archive.results_one' | t: page.lang }}">
     <div class="section-head">
       <h2 id="recent-heading">{{ "home.recent" | t: page.lang }}</h2>
       {%- assign label = "home.filter_label" | t: page.lang %}
@@ -22,6 +22,7 @@ layout: base
       {% include post-card.html post=post %}
       {%- endfor %}
     </div>
+    <p class="visually-hidden" data-filter-status aria-live="polite"></p>
     <a class="button button--outline recent-archive" href="{{ prefix }}/posts/">{{ "home.browse_archive" | t: page.lang }}</a>
   </section>
   {%- endif %}

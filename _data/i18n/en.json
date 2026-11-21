@@ -49,7 +49,8 @@
     "all": "All",
     "no_results": "No posts match.",
     "clear": "Clear filters",
-    "results": "{n} posts"
+    "results": "{n} posts",
+    "results_one": "1 post"
   },
   "footer": {
     "hosted": "Hosted on GitHub Pages",
@@ -115,7 +116,9 @@
     "demo": "Demo",
     "team": "Team repo",
     "more_heading": "More on Codeberg and GitHub",
-    "more_text": "Experiments and half-finished things"
+    "more_text": "Experiments and half-finished things",
+    "results": "{n} projects",
+    "results_one": "1 project"
   },
   "about": {
     "eyebrow": "About",

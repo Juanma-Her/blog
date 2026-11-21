@@ -559,7 +559,7 @@
 .archive-meta { display: flex; gap: 14px; color: var(--meta); font-family: var(--font-mono); font-size: 13px; }
 .archive-summary { max-width: 62ch; color: var(--text-2); font-size: 15px; line-height: 1.55; }
 
-.archive-empty { color: var(--meta); }
+.archive-empty { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; color: var(--meta); }
 
 /* Projects (BLG-23) */
 

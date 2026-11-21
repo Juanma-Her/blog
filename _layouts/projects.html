@@ -20,7 +20,7 @@ layout: base
 
   {% include project-card.html project=featured featured=true %}
 
-  <section aria-labelledby="projects-heading" data-filter-root data-filter-param="type">
+  <section aria-labelledby="projects-heading" data-filter-root data-filter-param="type" data-filter-results="{{ strings.results }}" data-filter-results-one="{{ strings.results_one }}">
     <div class="section-head">
       <h2 id="projects-heading">{{ strings.all }}</h2>
       {% include chips.html values=types labels=strings.type_filters label=strings.filter_label %}

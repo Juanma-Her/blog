@@ -6,7 +6,7 @@ layout: base
 {%- assign this_year = site.time | date: "%Y" -%}
 {%- assign first_year = posts.last.date | date: "%Y" -%}
 
-<div class="container container--narrow archive" data-filter-root data-filter-param="topic">
+<div class="container container--narrow archive" data-filter-root data-filter-param="topic" data-filter-results="{{ 'archive.results' | t: page.lang }}" data-filter-results-one="{{ 'archive.results_one' | t: page.lang }}">
   <div class="page-head archive-intro">
     <h1>{{ "archive.heading" | t: page.lang }}</h1>
     <p>{{ "archive.intro" | t: page.lang, n: posts.size, year: first_year }}</p>
@@ -31,6 +31,6 @@ layout: base
   </section>
   {%- endfor %}
 
-  <p class="archive-empty" data-filter-empty hidden>{{ "archive.no_results" | t: page.lang }}</p>
+  <p class="archive-empty" data-filter-empty hidden>{{ "archive.no_results" | t: page.lang }} <button class="button button--outline" type="button" data-filter-clear>{{ "archive.clear" | t: page.lang }}</button></p>
   <p class="visually-hidden" data-filter-status aria-live="polite"></p>
 </div>

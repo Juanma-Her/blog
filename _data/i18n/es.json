@@ -49,7 +49,8 @@
     "all": "Todos",
     "no_results": "Ningún post coincide.",
     "clear": "Quitar filtros",
-    "results": "{n} posts"
+    "results": "{n} posts",
+    "results_one": "1 post"
   },
   "footer": {
     "hosted": "Alojado en GitHub Pages",
@@ -115,7 +116,9 @@
     "demo": "Demo",
     "team": "Repo del equipo",
     "more_heading": "Más en Codeberg y GitHub",
-    "more_text": "Experimentos y cosas a medio terminar"
+    "more_text": "Experimentos y cosas a medio terminar",
+    "results": "{n} proyectos",
+    "results_one": "1 proyecto"
   },
   "about": {
     "eyebrow": "Sobre mí",
