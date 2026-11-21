@@ -13,6 +13,9 @@
 <script type="module" src="/assets/js/lang-switch.js"></script>
 {%- if page.collection == "posts" %}
 <script type="module" src="/assets/js/copy.js"></script>
+{%- unless page.comments == false %}
+<script type="module" src="/assets/js/comments.js"></script>
+{%- endunless %}
 {%- endif %}
 {%- assign filtered_layouts = "home archive projects" | split: " " %}
 {%- if filtered_layouts contains page.layout %}

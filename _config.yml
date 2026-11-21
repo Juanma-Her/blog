@@ -24,9 +24,9 @@ forges:
 
 giscus:
   repo: "Juanma-Her/blog"
-  repo_id: "R_..."         # from giscus.app in BLG-32
+  repo_id: "R_kgDOV25wcA"
   category: "Comments"
-  category_id: "DIC_..."   # from giscus.app in BLG-32
+  category_id: "DIC_kwDOV25wcM4DLrmY"
   mapping: "specific"      # data-term is post:<ref>, shared by both languages
 
 licence:

@@ -1,0 +1,21 @@
+{%- comment -%}
+  Comment box (Design document 11, JSON contracts 6.4). comments.js loads giscus
+  into .giscus when the reader scrolls near it. Both languages of a post share
+  one discussion through the term post:<ref>.
+{%- endcomment -%}
+{%- assign giscus = site.giscus -%}
+{%- assign discussions = "https://github.com/" | append: giscus.repo | append: "/discussions" -%}
+<section id="comments" class="comments" aria-labelledby="comments-heading"
+         data-giscus
+         data-repo="{{ giscus.repo }}" data-repo-id="{{ giscus.repo_id }}"
+         data-category="{{ giscus.category }}" data-category-id="{{ giscus.category_id }}"
+         data-mapping="{{ giscus.mapping }}" data-term="post:{{ page.ref }}" data-lang="{{ page.lang }}"
+         data-theme-dark="gruvbox_dark" data-theme-light="gruvbox_light">
+  <h2 id="comments-heading">{{ "comments.heading" | t: page.lang }}</h2>
+  <div class="comments-card">
+    {% include icon-comment.html %}
+    <p>{{ "comments.intro" | t: page.lang }}</p>
+  </div>
+  <noscript><p><a class="link-accent" href="{{ discussions }}">{{ "comments.no_js" | t: page.lang }}</a></p></noscript>
+  <div class="giscus"></div>
+</section>

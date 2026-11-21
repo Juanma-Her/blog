@@ -75,7 +75,9 @@ layout: base
   </nav>
   {%- endif %}
 
-  {%- comment -%} Comments (giscus) arrive in BLG-32. {%- endcomment %}
+  {%- unless page.comments == false %}
+  {% include comments.html %}
+  {%- endunless %}
 </article>
 
 {%- if related.size > 0 %}

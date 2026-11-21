@@ -485,6 +485,27 @@
 .post-nav-link span { color: var(--meta); font: 400 13px var(--font-body); }
 .post-nav-link--next { text-align: right; grid-column: -2; }
 
+/* Comments (BLG-32) */
+.comments { display: flex; flex-direction: column; gap: 16px; padding-top: 32px; border-top: 1px solid var(--border); }
+.comments h2 { font-size: 24px; }
+
+.comments-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--text-2);
+  font-size: 15px;
+}
+
+.comments-card svg { flex: 0 0 auto; }
+
+/* giscus draws its own focus rings inside the frame; the frame itself needs none. */
+.giscus-frame:focus-visible { outline: none; }
+
 .related { margin-top: 80px; padding-block: 48px 64px; border-top: 1px solid var(--border); background: var(--panel); }
 .related h2 { margin-bottom: 24px; font-size: 24px; }
 .related + .site-footer { margin-top: 0; }
