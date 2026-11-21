@@ -145,5 +145,9 @@
     "hello_heading": "Escribime",
     "hello_text": "¿Preguntas sobre un post, o ganas de charlar de código? El correo es la mejor forma de contactarme.",
     "photo_placeholder": "[ tu foto ]"
+  },
+  "feed": {
+    "subtitle": "Un blog de desarrollo sobre Rust, C/C++, herramientas, homelabs y HPC.",
+    "tag_subtitle": "Posts sobre {topic}"
   }
 }

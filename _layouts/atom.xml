@@ -1,0 +1,39 @@
+---
+---
+{%- comment -%}
+  Atom feed (JSON contracts 6.5): the newest posts of page.lang, or only those
+  tagged page.tag for a tag feed (_plugins/feeds.rb).
+{%- endcomment -%}
+{%- assign lang = page.lang -%}
+{%- assign posts = site.posts | where: "lang", lang -%}
+{%- if page.tag %}{% assign posts = posts | where_exp: "post", "post.tags contains page.tag" %}{% endif -%}
+{%- assign posts = posts | slice: 0, site.feed_limit -%}
+{%- if lang == "es" %}{% assign home = "/es/" %}{% else %}{% assign home = "/" %}{% endif -%}
+{%- assign topic = site.data.topics[page.tag].label | localize: lang | default: page.tag -%}
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ lang }}">
+  <title>{{ site.title | xml_escape }}{% if page.tag %} · {{ topic | xml_escape }}{% endif %}</title>
+  <subtitle>{% if page.tag %}{{ "feed.tag_subtitle" | t: lang, topic: topic | xml_escape }}{% else %}{{ "feed.subtitle" | t: lang | xml_escape }}{% endif %}</subtitle>
+  <link href="{{ page.url | absolute_url }}" rel="self" type="application/atom+xml"/>
+  <link href="{{ home | absolute_url }}" rel="alternate" type="text/html"/>
+  <id>{{ page.url | absolute_url }}</id>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <author><name>{{ site.author.name | xml_escape }}</name></author>
+  <rights>{{ site.licence.content }}</rights>
+  {%- for post in posts %}
+  {%- assign tag = post.tags | first %}
+  <entry xml:lang="{{ lang }}">
+    <title>{{ post.title | xml_escape }}</title>
+    <link href="{{ post.url | absolute_url }}" rel="alternate" type="text/html"/>
+    {%- for translation in post.translations %}{% if translation[0] != lang %}
+    <link href="{{ translation[1] | absolute_url }}" rel="alternate" type="text/html" hreflang="{{ translation[0] }}"/>
+    {%- endif %}{% endfor %}
+    <id>{{ post.url | absolute_url }}</id>
+    <published>{{ post.date | date_to_xmlschema }}</published>
+    <updated>{{ post.updated | default: post.date | date_to_xmlschema }}</updated>
+    <summary>{{ post.description | xml_escape }}</summary>
+    <category term="{{ tag }}" label="{{ site.data.topics[tag].label | localize: lang | xml_escape }}"/>
+    <content type="html">{{ post.content | feed_html | xml_escape }}</content>
+  </entry>
+  {%- endfor %}
+</feed>

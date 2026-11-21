@@ -145,5 +145,9 @@
     "hello_heading": "Say hello",
     "hello_text": "Questions about a post, or just want to talk shop? Email is the best way to reach me.",
     "photo_placeholder": "[ your photo ]"
+  },
+  "feed": {
+    "subtitle": "A dev blog about Rust, C/C++, tooling, homelabs and HPC.",
+    "tag_subtitle": "Posts about {topic}"
   }
 }
