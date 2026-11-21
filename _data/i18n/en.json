@@ -30,7 +30,8 @@
     "next": "Next",
     "more_on": "More on {topic}",
     "copy": "Copy",
-    "copied": "Copied"
+    "copied": "Copied",
+    "minutes": "{n} min"
   },
   "comments": {
     "heading": "Comments",
@@ -67,5 +68,15 @@
       "Nov",
       "Dec"
     ]
+  },
+  "home": {
+    "latest": "Latest",
+    "read_post": "Read the post",
+    "recent": "Recent posts",
+    "filter_label": "Filter by topic",
+    "browse_archive": "Browse the archive",
+    "follow_heading": "Follow along",
+    "follow_text": "A new post every few weeks. No tracking, just a feed.",
+    "subscribe": "Subscribe via RSS"
   }
 }

@@ -1,0 +1,6 @@
+{%- comment -%}
+  A topic label in its colour. include.tag is a key of topics.json.
+  The colours are set as --topic (text) and --topic-bar (bars and pills).
+{%- endcomment -%}
+{%- assign topic = site.data.topics[include.tag] -%}
+<span class="topic" style="--topic: light-dark({{ topic.light_text }}, {{ topic.dark }}); --topic-bar: light-dark({{ topic.light_bar }}, {{ topic.dark }})">{{ topic.label | localize: page.lang }}</span>

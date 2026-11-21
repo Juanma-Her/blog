@@ -1,0 +1,14 @@
+{%- comment -%}
+  Codeberg then GitHub, each only when it has a URL (JSON contracts 7.1).
+  include.links: { codeberg, github } URLs; without it, the author's profiles.
+  include.class: class for each link.
+{%- endcomment -%}
+{%- assign links = include.links -%}
+{%- assign codeberg = links.codeberg -%}
+{%- assign github = links.github -%}
+{%- unless links -%}
+  {%- assign codeberg = "https://codeberg.org/" | append: site.forges.codeberg.user -%}
+  {%- assign github = "https://github.com/" | append: site.forges.github.user -%}
+{%- endunless -%}
+{%- if codeberg %}<a class="{{ include.class }}" href="{{ codeberg }}">Codeberg</a>{% endif %}
+{%- if github %}<a class="{{ include.class }}" href="{{ github }}">GitHub</a>{% endif %}

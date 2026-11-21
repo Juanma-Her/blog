@@ -1,0 +1,10 @@
+{%- comment -%}
+  Filter chips (JSON contracts 6.2). include.values: topic keys; include.label:
+  accessible name of the group. Filtering itself is added in BLG-31.
+{%- endcomment -%}
+<div class="chips" role="group" aria-label="{{ include.label }}" data-filter-chips>
+  <button class="chip" type="button" data-filter-value="" aria-pressed="true">{{ "archive.all" | t: page.lang }}</button>
+  {%- for value in include.values %}
+  <button class="chip" type="button" data-filter-value="{{ value }}" aria-pressed="false">{{ site.data.topics[value].label | localize: page.lang }}</button>
+  {%- endfor %}
+</div>

@@ -1,0 +1,20 @@
+{%- assign post = include.post -%}
+{%- assign tag = post.tags | first -%}
+{%- assign minutes = post.content | read_minutes -%}
+<article class="hero">
+  <div class="hero-text">
+    <p class="hero-meta">
+      <span class="pill">{{ "home.latest" | t: page.lang }}</span>
+      {% include topic.html tag=tag %}
+      <span>{{ post.date | localize_date: page.lang }} · {{ "post.minutes" | t: page.lang, n: minutes }}</span>
+    </p>
+    <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+    <p class="hero-summary">{{ post.description }}</p>
+    <a class="button button--accent" href="{{ post.url }}">{{ "home.read_post" | t: page.lang }}</a>
+  </div>
+  {%- if post.hero_code %}
+  {%- capture fenced %}```{{ post.hero_code.lang }}
+{{ post.hero_code.code }}```{% endcapture %}
+  <div class="hero-code">{{ fenced | markdownify }}</div>
+  {%- endif %}
+</article>

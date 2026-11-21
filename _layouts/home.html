@@ -1,0 +1,46 @@
+---
+layout: base
+---
+{%- assign posts = site.posts | where: "lang", page.lang -%}
+{%- assign cards = posts | slice: 1, site.home_cards -%}
+{%- assign tags_in_cards = cards | map: "tags" | uniq -%}
+{%- assign topics = "" | split: "" -%}
+{%- for topic in site.data.topics -%}
+  {%- unless topic[1].hidden -%}
+    {%- if tags_in_cards contains topic[0] %}{% assign topics = topics | push: topic[0] %}{% endif -%}
+  {%- endunless -%}
+{%- endfor -%}
+{%- if page.lang == "es" %}{% assign prefix = "/es" %}{% else %}{% assign prefix = "" %}{% endif -%}
+
+<div class="container home">
+  {%- if posts.size > 0 %}
+  {% include hero.html post=posts.first %}
+  {%- endif %}
+
+  {%- if cards.size > 0 %}
+  <section class="recent" aria-labelledby="recent-heading" data-filter-root data-filter-param="topic">
+    <div class="section-head">
+      <h2 id="recent-heading">{{ "home.recent" | t: page.lang }}</h2>
+      {%- assign label = "home.filter_label" | t: page.lang %}
+      {% include chips.html values=topics label=label %}
+    </div>
+    <div class="card-grid">
+      {%- for post in cards %}
+      {% include post-card.html post=post %}
+      {%- endfor %}
+    </div>
+    <a class="button button--outline recent-archive" href="{{ prefix }}/posts/">{{ "home.browse_archive" | t: page.lang }}</a>
+  </section>
+  {%- endif %}
+
+  <section class="follow" aria-labelledby="follow-heading">
+    <div>
+      <h2 id="follow-heading">{{ "home.follow_heading" | t: page.lang }}</h2>
+      <p>{{ "home.follow_text" | t: page.lang }}</p>
+    </div>
+    <div class="follow-links">
+      <a class="button button--accent" href="{{ prefix }}/feed/">{{ "home.subscribe" | t: page.lang }}</a>
+      {% include forge-links.html class="button button--outline" %}
+    </div>
+  </section>
+</div>

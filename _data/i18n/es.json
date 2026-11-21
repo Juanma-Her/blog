@@ -30,7 +30,8 @@
     "next": "Siguiente",
     "more_on": "Más sobre {topic}",
     "copy": "Copiar",
-    "copied": "Copiado"
+    "copied": "Copiado",
+    "minutes": "{n} min"
   },
   "comments": {
     "heading": "Comentarios",
@@ -67,5 +68,15 @@
       "nov",
       "dic"
     ]
+  },
+  "home": {
+    "latest": "Último",
+    "read_post": "Leer el post",
+    "recent": "Posts recientes",
+    "filter_label": "Filtrar por tema",
+    "browse_archive": "Ver el archivo",
+    "follow_heading": "Seguí el blog",
+    "follow_text": "Un post nuevo cada algunas semanas. Sin rastreo, solo un feed.",
+    "subscribe": "Suscribite por RSS"
   }
 }
