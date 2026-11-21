@@ -1,7 +1,58 @@
-# Placeholder config for M0 (BLG-04). The full config arrives in BLG-10.
+# Site constants (Design document 1.1, JSON contracts 5).
+# Layouts, plugins and scripts read settings only from here.
+
 title: "~/strinix"
+description: "A dev blog about Rust, C/C++, tooling, homelabs and HPC."
 url: "https://strinix.com.ar"
+baseurl: ""
+author:
+  name: "Juan Martín Hernández"
+email: "contact@strinix.com.ar"
+languages: ["en", "es"]
+default_lang: "en"
 timezone: "America/Argentina/Buenos_Aires"
+future: false
+
+words_per_minute: 200
+home_cards: 6
+related_posts: 3
+feed_limit: 20
+
+forges:
+  github:   { user: "Juanma-Her", repo: "blog", branch: "main" }
+  codeberg: { user: "Strinix",    repo: "blog", branch: "main" }
+
+giscus:
+  repo: "Juanma-Her/blog"
+  repo_id: "R_..."         # from giscus.app in BLG-32
+  category: "Comments"
+  category_id: "DIC_..."   # from giscus.app in BLG-32
+  mapping: "specific"      # data-term is post:<ref>, shared by both languages
+
+licence:
+  code: "GPL-3.0-or-later"
+  content: "CC BY-SA 4.0"
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  math_engine: katex
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+defaults:
+  - scope: { path: "_posts/en" }
+    values: { lang: "en", layout: "post", permalink: "/posts/:title/" }
+  - scope: { path: "_posts/es" }
+    values: { lang: "es", layout: "post", permalink: "/es/posts/:title/" }
+  - scope: { path: "es" }
+    values: { lang: "es" }
+  - scope: { path: "" }
+    values: { lang: "en" }
 
 exclude:
   - README.md

@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "profile": {
+    "photo": "/assets/img/profile.webp",
+    "photo_alt": {
+      "en": "Juan Martín Hernández",
+      "es": "Juan Martín Hernández"
+    },
+    "role": {
+      "en": "Student and developer",
+      "es": "Estudiante y desarrollador"
+    },
+    "details": [
+      {
+        "key": "based",
+        "value": {
+          "en": "[City, Country]",
+          "es": "[Ciudad, País]"
+        }
+      },
+      {
+        "key": "writes",
+        "value": {
+          "en": "Rust, C/C++, HPC",
+          "es": "Rust, C/C++, HPC"
+        }
+      },
+      {
+        "key": "editor",
+        "value": {
+          "en": "Neovim",
+          "es": "Neovim"
+        }
+      },
+      {
+        "key": "team",
+        "value": {
+          "en": "[University] HPC",
+          "es": "HPC de [Universidad]"
+        }
+      }
+    ]
+  },
+  "intro": {
+    "en": "I write about the **systems** I build and break.",
+    "es": "Escribo sobre los **sistemas** que armo y rompo."
+  },
+  "experience": [
+    {
+      "start": "2025-03",
+      "end": null,
+      "title": {
+        "en": "Member, HPC team",
+        "es": "Integrante, equipo de HPC"
+      },
+      "org": "[University]",
+      "summary": {
+        "en": "Building and tuning the competition cluster.",
+        "es": "Armado y ajuste del clúster de competencia."
+      }
+    },
+    {
+      "start": "2024-02",
+      "end": "2025-02",
+      "title": {
+        "en": "Teaching assistant",
+        "es": "Ayudante de cátedra"
+      },
+      "org": "[University]",
+      "summary": {
+        "en": "Labs for an operating systems course.",
+        "es": "Prácticos de una materia de sistemas operativos."
+      }
+    }
+  ],
+  "elsewhere": [
+    {
+      "kind": "talk",
+      "title": "Title of the talk",
+      "venue": "Event name",
+      "date": "2026-05",
+      "url": "https://example.org"
+    }
+  ],
+  "competitions": {
+    "team": {
+      "name": "[University] HPC team",
+      "summary": {
+        "en": "A student team that builds a small cluster and competes on real workloads.",
+        "es": "Un equipo de estudiantes que arma un clúster chico y compite con cargas reales."
+      },
+      "url": "https://example.org"
+    },
+    "entries": [
+      {
+        "kind": "scc",
+        "event": "SC26 Student Cluster Competition",
+        "date": "2026-11",
+        "role": {
+          "en": "Team member",
+          "es": "Integrante"
+        },
+        "result": {
+          "en": "Finalist",
+          "es": "Finalista"
+        },
+        "url": "https://example.org"
+      },
+      {
+        "kind": "hackathon",
+        "event": "[Hackathon name]",
+        "date": "2025-09",
+        "role": {
+          "en": "Backend",
+          "es": "Backend"
+        }
+      }
+    ],
+    "interested_subject": {
+      "en": "Hackathon team",
+      "es": "Equipo para hackathon"
+    }
+  },
+  "skills": [
+    {
+      "label": "Rust",
+      "topic": "rust"
+    },
+    {
+      "label": "C/C++",
+      "topic": "cpp"
+    },
+    {
+      "label": "Slurm",
+      "topic": "hpc"
+    },
+    {
+      "label": "Docker"
+    },
+    {
+      "label": "Neovim",
+      "topic": "tooling"
+    }
+  ]
+}

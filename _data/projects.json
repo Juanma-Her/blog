@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "projects": [
+    {
+      "id": "tiny-lisp",
+      "featured": true,
+      "type": "tool",
+      "status": "active",
+      "title": "tiny-lisp",
+      "description": {
+        "en": "A small Lisp interpreter in Rust, the project behind the Building a Lisp posts.",
+        "es": "Un intérprete de Lisp pequeño en Rust, el proyecto detrás de los posts sobre Lisp."
+      },
+      "stack": [
+        "Rust"
+      ],
+      "links": {
+        "codeberg": "https://codeberg.org/Strinix/tiny-lisp",
+        "github": "https://github.com/Juanma-Her/tiny-lisp",
+        "writeup": "tiny-lisp"
+      },
+      "terminal": {
+        "command": "cargo run --release",
+        "output": "λ> (fact 10)\n3628800"
+      },
+      "year": 2026
+    },
+    {
+      "id": "cluster-tools",
+      "featured": false,
+      "type": "hpc",
+      "status": "active",
+      "title": "cluster-tools",
+      "description": {
+        "en": "Scripts the team uses to build and tune the competition cluster.",
+        "es": "Scripts que el equipo usa para armar y ajustar el clúster de la competencia."
+      },
+      "stack": [
+        "Bash",
+        "Slurm",
+        "MPI"
+      ],
+      "links": {
+        "codeberg": "https://codeberg.org/Strinix/cluster-tools",
+        "writeup": "slurm-mpi-profiling"
+      },
+      "year": 2026
+    },
+    {
+      "id": "hackathon-demo",
+      "featured": false,
+      "type": "hackathon",
+      "status": "finished",
+      "title": "Hackathon demo",
+      "description": {
+        "en": "What we built in a weekend, and what happened.",
+        "es": "Lo que armamos en un fin de semana, y cómo nos fue."
+      },
+      "stack": [
+        "Python",
+        "FastAPI"
+      ],
+      "links": {
+        "github": "https://github.com/Juanma-Her/hackathon-demo"
+      },
+      "year": 2025
+    },
+    {
+      "id": "blog",
+      "featured": false,
+      "type": "tool",
+      "status": "active",
+      "title": "This blog",
+      "description": {
+        "en": "The site you're reading: a Jekyll theme in Gruvbox, hosted on GitHub Pages.",
+        "es": "El sitio que estás leyendo: un tema de Jekyll en Gruvbox, en GitHub Pages."
+      },
+      "stack": [
+        "Jekyll",
+        "Liquid",
+        "CSS"
+      ],
+      "links": {
+        "codeberg": "https://codeberg.org/Strinix/blog",
+        "github": "https://github.com/Juanma-Her/blog"
+      },
+      "year": 2026
+    },
+    {
+      "id": "dotfiles",
+      "featured": false,
+      "type": "tool",
+      "status": "maintained",
+      "title": "dotfiles",
+      "description": {
+        "en": "Neovim, shell and window manager configuration.",
+        "es": "Configuración de Neovim, la terminal y el gestor de ventanas."
+      },
+      "stack": [
+        "Lua",
+        "Shell"
+      ],
+      "links": {
+        "codeberg": "https://codeberg.org/Strinix/dotfiles"
+      },
+      "year": 2024
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "rust": {
+    "label": {
+      "en": "Rust",
+      "es": "Rust"
+    },
+    "dark": "#fe8019",
+    "light_text": "#af3a03",
+    "light_bar": "#af3a03"
+  },
+  "cpp": {
+    "label": {
+      "en": "C/C++",
+      "es": "C/C++"
+    },
+    "dark": "#458588",
+    "light_text": "#458588",
+    "light_bar": "#458588"
+  },
+  "homelab": {
+    "label": {
+      "en": "Homelab",
+      "es": "Homelab"
+    },
+    "dark": "#83a598",
+    "light_text": "#076678",
+    "light_bar": "#076678"
+  },
+  "tooling": {
+    "label": {
+      "en": "Tooling",
+      "es": "Herramientas"
+    },
+    "dark": "#b8bb26",
+    "light_text": "#504945",
+    "light_bar": "#79740e"
+  },
+  "python": {
+    "label": {
+      "en": "Python",
+      "es": "Python"
+    },
+    "dark": "#fabd2f",
+    "light_text": "#504945",
+    "light_bar": "#b57614"
+  },
+  "hpc": {
+    "label": {
+      "en": "HPC",
+      "es": "HPC"
+    },
+    "dark": "#d3869b",
+    "light_text": "#8f3f71",
+    "light_bar": "#8f3f71"
+  },
+  "interpreters": {
+    "hidden": true
+  },
+  "mpi": {
+    "hidden": true
+  },
+  "neovim": {
+    "hidden": true
+  }
+}
