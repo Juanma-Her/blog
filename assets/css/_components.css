@@ -206,6 +206,12 @@
   color: var(--chip-active-text);
 }
 
+/* Page heading: archive, projects, about */
+
+.page-head { display: flex; flex-direction: column; gap: 14px; max-width: 760px; }
+.page-head h1 { font-size: clamp(2.25rem, 6vw, 3.25rem); line-height: 1.1; }
+.page-head p { color: var(--text-2); font-size: 18px; }
+
 /* Home (BLG-20) */
 
 .home {
@@ -238,7 +244,7 @@
   font-size: 13px;
 }
 
-.hero h1 { font-size: clamp(2rem, 5vw, 2.75rem); line-height: 1.1; }
+.hero h1, .hero h2 { font-size: clamp(2rem, 5vw, 2.75rem); line-height: 1.1; }
 .hero-summary { max-width: 48ch; color: var(--text-2); font-size: 18px; }
 
 .hero-code { flex: 1 1 420px; min-width: 0; }
@@ -248,7 +254,7 @@
   padding: 20px 24px;
   border: 1px solid var(--border);
   border-radius: 12px;
-  background: var(--bg);
+  background: var(--inset-bg);
   font-size: 14px;
   line-height: 1.7;
 }
@@ -422,9 +428,7 @@
 /* Archive (BLG-22) */
 
 .archive { display: flex; flex-direction: column; gap: 40px; padding-top: 48px; }
-.archive-intro { display: flex; flex-direction: column; gap: 20px; }
-.archive h1 { font-size: clamp(2.25rem, 6vw, 3.25rem); line-height: 1.1; }
-.archive-intro p { color: var(--text-2); font-size: 18px; }
+.archive-intro { gap: 20px; max-width: none; }
 
 .archive-search {
   display: flex;
@@ -492,3 +496,73 @@
 .archive-summary { max-width: 62ch; color: var(--text-2); font-size: 15px; line-height: 1.55; }
 
 .archive-empty { color: var(--meta); }
+
+/* Projects (BLG-23) */
+
+.projects { display: flex; flex-direction: column; gap: 56px; padding-top: 40px; }
+
+.project-buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.terminal { margin: 0; overflow: hidden; border: 1px solid var(--border); border-radius: 12px; background: var(--inset-bg); }
+.terminal figcaption { padding: 10px 16px; border-bottom: 1px solid var(--border); color: var(--meta); font: 13px var(--font-mono); }
+.hero-code.terminal pre { border: 0; border-radius: 0; background: none; line-height: 1.8; }
+.terminal-prompt { color: var(--accent); }
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+}
+
+.project-card-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.project-card h3 { font-size: 21px; }
+.project-description { color: var(--text-2); font-size: 15px; }
+.project-stack, .project-year { color: var(--meta); font: 13px var(--font-mono); }
+
+.project-links { display: flex; flex-wrap: wrap; gap: 0 16px; margin-top: auto; font-size: 14px; font-weight: 500; }
+.project-links a { padding-block: 8px; }
+.link-accent { color: var(--accent); }
+
+.type-pill {
+  padding: 2px 10px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  color: var(--type);
+  font: 12px var(--font-mono);
+}
+
+.type--tool      { --type: light-dark(#076678, #83a598); }
+.type--hpc       { --type: light-dark(#8f3f71, #d3869b); }
+.type--hackathon { --type: light-dark(#af3a03, #fe8019); }
+
+/* Active and maintained get a dot; finished and archived are plain text. */
+.status { display: inline-flex; align-items: center; gap: 6px; color: var(--meta); font-size: 13px; }
+.status-dot { display: none; width: 8px; height: 8px; border-radius: 50%; background: var(--status); }
+.status--active     { --status: light-dark(#79740e, #b8bb26); }
+.status--maintained { --status: light-dark(#076678, #83a598); }
+.status--active, .status--maintained { color: light-dark(var(--text), var(--status)); }
+.status--active .status-dot, .status--maintained .status-dot { display: block; }
+
+.project-more {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  min-height: 220px;
+  padding: 24px;
+  border: 1px dashed var(--border-dashed);
+  border-radius: 12px;
+  color: var(--text-2);
+  text-align: center;
+}
+
+/* The links below have 8px of invisible padding; match it above the icon so the content looks centred. */
+.project-more svg { width: 28px; height: 28px; margin-top: 8px; }
+.project-more strong { color: var(--text); font-weight: 600; }
+.project-more span { font-size: 14px; }
+.project-more .project-links { justify-content: center; gap: 0 20px; margin-top: 0; }

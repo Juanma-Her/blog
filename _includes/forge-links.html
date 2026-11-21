@@ -1,7 +1,8 @@
 {%- comment -%}
   Codeberg then GitHub, each only when it has a URL (JSON contracts 7.1).
   include.links: { codeberg, github } URLs; without it, the author's profiles.
-  include.class: class for each link.
+  include.class: class for each link; include.first_class: for the first one.
+  include.icon: a code icon before the name; include.arrow: "↗" after it.
 {%- endcomment -%}
 {%- assign links = include.links -%}
 {%- assign codeberg = links.codeberg -%}
@@ -10,5 +11,8 @@
   {%- assign codeberg = "https://codeberg.org/" | append: site.forges.codeberg.user -%}
   {%- assign github = "https://github.com/" | append: site.forges.github.user -%}
 {%- endunless -%}
-{%- if codeberg %}<a class="{{ include.class }}" href="{{ codeberg }}">Codeberg</a>{% endif %}
-{%- if github %}<a class="{{ include.class }}" href="{{ github }}">GitHub</a>{% endif %}
+{%- assign first_class = include.first_class | default: include.class -%}
+{%- capture icon %}{% if include.icon %}{% include icon-code.html %}{% endif %}{% endcapture -%}
+{%- capture arrow %}{% if include.arrow %} ↗{% endif %}{% endcapture -%}
+{%- if codeberg %}<a class="{{ first_class }}" href="{{ codeberg }}">{{ icon | strip }}Codeberg{{ arrow }}</a>{% endif %}
+{%- if github %}<a class="{% if codeberg %}{{ include.class }}{% else %}{{ first_class }}{% endif %}" href="{{ github }}">{{ icon | strip }}GitHub{{ arrow }}</a>{% endif %}

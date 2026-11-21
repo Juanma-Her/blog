@@ -3,6 +3,7 @@
   include.posts: one chip per visible topic used by these posts, in topics.json
   order. include.values: topic keys, when the caller picks them itself.
   include.dots: a dot in the topic's colour before each label (archive).
+  include.labels: { key: label } for values that are not topics (project types).
   Filtering itself is added in BLG-31.
 {%- endcomment -%}
 {%- assign values = include.values -%}
@@ -19,6 +20,6 @@
   {%- assign topic = site.data.topics[value] %}
   <button class="chip" type="button" data-filter-value="{{ value }}" aria-pressed="false">
     {%- if include.dots %}<span class="chip-dot" aria-hidden="true" style="--topic-bar: light-dark({{ topic.light_bar }}, {{ topic.dark }})"></span>{% endif -%}
-    {{ topic.label | localize: page.lang }}</button>
+    {%- if include.labels %}{{ include.labels[value] }}{% else %}{{ topic.label | localize: page.lang }}{% endif %}</button>
   {%- endfor %}
 </div>

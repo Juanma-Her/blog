@@ -1,7 +1,9 @@
 {%- comment -%}
-  "EN" next to a post listed in another language's page (posts_for).
+  "EN" or "ES" next to a post in another language than the page.
   include.post: the post.
 {%- endcomment -%}
-{%- if include.post.lang != page.lang -%}
-<span class="lang-badge"><span aria-hidden="true">{{ include.post.lang | upcase }}</span><span class="visually-hidden">{{ "post.only_in_default" | t: page.lang }}</span></span>
+{%- assign badge_lang = include.post.lang -%}
+{%- if badge_lang != page.lang -%}
+{%- assign language = site.data.i18n[page.lang].language_names[badge_lang] %}
+<span class="lang-badge"><span aria-hidden="true">{{ badge_lang | upcase }}</span><span class="visually-hidden">{{ "post.only_in" | t: page.lang, language: language }}</span></span>
 {%- endif -%}

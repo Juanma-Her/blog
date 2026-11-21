@@ -34,7 +34,7 @@
     "edit_text": "Cada post es un archivo Markdown en el repositorio.",
     "previous": "Anterior",
     "next": "Siguiente",
-    "only_in_default": "Solo en inglés"
+    "only_in": "Solo en {language}"
   },
   "comments": {
     "heading": "Comentarios",
@@ -83,5 +83,38 @@
     "follow_heading": "Seguí el blog",
     "follow_text": "Un post nuevo cada algunas semanas. Sin rastreo, solo un feed.",
     "subscribe": "Suscribite por RSS"
+  },
+  "language_names": {
+    "en": "inglés",
+    "es": "español"
+  },
+  "projects": {
+    "heading": "Proyectos",
+    "intro": "Cosas que armé, rompí y a veces terminé: proyectos personales, trabajo de HPC y hackathons.",
+    "featured": "Destacado",
+    "all": "Todos los proyectos",
+    "filter_label": "Filtrar proyectos",
+    "types": {
+      "tool": "Herramienta",
+      "hpc": "HPC",
+      "hackathon": "Hackathon"
+    },
+    "type_filters": {
+      "tool": "Herramientas",
+      "hpc": "HPC",
+      "hackathon": "Hackathons"
+    },
+    "status": {
+      "active": "Activo",
+      "maintained": "Mantenido",
+      "finished": "Terminado",
+      "archived": "Archivado"
+    },
+    "writeup": "Artículo",
+    "read_writeup": "Leer el artículo",
+    "demo": "Demo",
+    "team": "Repo del equipo",
+    "more_heading": "Más en Codeberg y GitHub",
+    "more_text": "Experimentos y cosas a medio terminar"
   }
 }

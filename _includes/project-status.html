@@ -1,0 +1,10 @@
+{%- comment -%}
+  Status as a coloured dot and its name, never colour alone.
+  Hackathon projects show their year instead. include.project: the project.
+{%- endcomment -%}
+{%- assign project = include.project -%}
+{%- if project.type == "hackathon" -%}
+<span class="project-year">{{ project.year }}</span>
+{%- else -%}
+<span class="status status--{{ project.status }}"><span class="status-dot" aria-hidden="true"></span>{{ site.data.i18n[page.lang].projects.status[project.status] }}</span>
+{%- endif -%}

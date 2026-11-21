@@ -5,5 +5,5 @@
   {% include topic.html tag=tag %}
   <span class="post-card-title" lang="{{ post.lang }}">{{ post.title }}</span>
   <span class="post-card-summary" lang="{{ post.lang }}">{{ post.description }}</span>
-  <span class="post-card-meta">{{ post.date | localize_date: page.lang }} · {{ "post.minutes" | t: page.lang, n: minutes }} {% include lang-badge.html post=post %}</span>
+  <span class="post-card-meta">{{ post.date | localize_date: page.lang }} · {{ "post.minutes" | t: page.lang, n: minutes }}{% include lang-badge.html post=post %}</span>
 </a>

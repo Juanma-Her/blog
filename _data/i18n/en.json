@@ -34,7 +34,7 @@
     "edit_text": "Every post is a Markdown file in the repository.",
     "previous": "Previous",
     "next": "Next",
-    "only_in_default": "Only in English"
+    "only_in": "Only in {language}"
   },
   "comments": {
     "heading": "Comments",
@@ -83,5 +83,38 @@
     "follow_heading": "Follow along",
     "follow_text": "A new post every few weeks. No tracking, just a feed.",
     "subscribe": "Subscribe via RSS"
+  },
+  "language_names": {
+    "en": "English",
+    "es": "Spanish"
+  },
+  "projects": {
+    "heading": "Projects",
+    "intro": "Things I've built, broken and occasionally finished: side projects, HPC work and hackathon builds.",
+    "featured": "Featured",
+    "all": "All projects",
+    "filter_label": "Filter projects",
+    "types": {
+      "tool": "Tool",
+      "hpc": "HPC",
+      "hackathon": "Hackathon"
+    },
+    "type_filters": {
+      "tool": "Tools",
+      "hpc": "HPC",
+      "hackathon": "Hackathons"
+    },
+    "status": {
+      "active": "Active",
+      "maintained": "Maintained",
+      "finished": "Finished",
+      "archived": "Archived"
+    },
+    "writeup": "Write-up",
+    "read_writeup": "Read the write-up",
+    "demo": "Demo",
+    "team": "Team repo",
+    "more_heading": "More on Codeberg and GitHub",
+    "more_text": "Experiments and half-finished things"
   }
 }

@@ -1,0 +1,45 @@
+---
+layout: base
+---
+{%- assign strings = site.data.i18n[page.lang].projects -%}
+{%- assign all = site.data.projects.projects | sort: "title" -%}
+{%- assign featured = all | where: "featured", true | first -%}
+{%- assign others = all | where: "featured", false -%}
+{%- assign years = others | map: "year" | uniq | sort | reverse -%}
+{%- assign types_present = others | map: "type" -%}
+{%- assign types = "" | split: "" -%}
+{%- for type in strings.type_filters -%}
+  {%- if types_present contains type[0] %}{% assign types = types | push: type[0] %}{% endif -%}
+{%- endfor -%}
+
+<div class="container projects">
+  <div class="page-head">
+    <h1>{{ strings.heading }}</h1>
+    <p>{{ strings.intro }}</p>
+  </div>
+
+  {% include project-card.html project=featured featured=true %}
+
+  <section aria-labelledby="projects-heading" data-filter-root data-filter-param="type">
+    <div class="section-head">
+      <h2 id="projects-heading">{{ strings.all }}</h2>
+      {% include chips.html values=types labels=strings.type_filters label=strings.filter_label %}
+    </div>
+    <div class="card-grid">
+      {%- comment -%} Newest year first; titles A to Z inside a year. {%- endcomment -%}
+      {%- for year in years %}
+      {%- assign in_year = others | where: "year", year %}
+      {%- for project in in_year %}
+      {% include project-card.html project=project %}
+      {%- endfor %}
+      {%- endfor %}
+      <div class="project-more">
+        {% include icon-code.html %}
+        <strong>{{ strings.more_heading }}</strong>
+        <span>{{ strings.more_text }}</span>
+        <span class="project-links">{% include forge-links.html class="link-accent" arrow=true %}</span>
+      </div>
+    </div>
+    <p class="visually-hidden" data-filter-status aria-live="polite"></p>
+  </section>
+</div>

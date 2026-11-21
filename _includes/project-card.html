@@ -1,0 +1,61 @@
+{%- comment -%}
+  A project card, or the featured panel when include.featured (JSON contracts 7.1).
+  include.project: an entry of _data/projects.json.
+{%- endcomment -%}
+{%- assign project = include.project -%}
+{%- assign links = project.links -%}
+{%- assign strings = site.data.i18n[page.lang].projects -%}
+
+{%- comment -%} The write-up in the page's language, else the other one. {%- endcomment -%}
+{%- assign writeup = nil -%}
+{%- if links.writeup -%}
+  {%- assign writeups = site.posts | where: "ref", links.writeup -%}
+  {%- assign writeup = writeups | where: "lang", page.lang | first -%}
+  {%- unless writeup %}{% assign writeup = writeups.first %}{% endunless -%}
+{%- endif -%}
+
+{%- if include.featured %}
+<article class="hero project-featured">
+  <div class="hero-text">
+    <p class="hero-meta">
+      <span class="pill">{{ strings.featured }}</span>
+      {%- for item in project.stack %}
+      {%- assign key = item | downcase %}
+      {% if site.data.topics[key] %}{% include topic.html tag=key %}{% else %}<span>{{ item }}</span>{% endif %}
+      {%- endfor %}
+      {% include project-status.html project=project %}
+    </p>
+    <h2>{{ project.title }}</h2>
+    <p class="hero-summary">{{ project.description | localize: page.lang }}</p>
+    <div class="project-buttons">
+      {% include forge-links.html links=links class="button button--outline" first_class="button button--accent" icon=true %}
+      {%- if links.team %}<a class="button button--outline" href="{{ links.team }}">{{ strings.team }}</a>{% endif %}
+      {%- if writeup %}<a class="button button--outline" href="{{ writeup.url }}">{{ strings.read_writeup }}{% include lang-badge.html post=writeup %}</a>{% endif %}
+      {%- if links.demo %}<a class="button button--outline" href="{{ links.demo }}">{{ strings.demo }}</a>{% endif %}
+    </div>
+  </div>
+  {%- if project.terminal %}
+  <figure class="hero-code terminal">
+    <figcaption>terminal</figcaption>
+    <pre><code><span class="terminal-prompt">$</span> {{ project.terminal.command | escape }}
+{{ project.terminal.output | escape }}</code></pre>
+  </figure>
+  {%- endif %}
+</article>
+{%- else %}
+<article class="project-card" data-filter-item data-filter-key="{{ project.type }}">
+  <div class="project-card-head">
+    <span class="type-pill type--{{ project.type }}">{{ strings.types[project.type] }}</span>
+    {% include project-status.html project=project %}
+  </div>
+  <h3>{{ project.title }}</h3>
+  <p class="project-description">{{ project.description | localize: page.lang }}</p>
+  <p class="project-stack">{{ project.stack | join: " · " }}</p>
+  <div class="project-links">
+    {% include forge-links.html links=links class="link-accent" arrow=true %}
+    {%- if links.team %}<a class="link-accent" href="{{ links.team }}">{{ strings.team }} ↗</a>{% endif %}
+    {%- if writeup %}<a href="{{ writeup.url }}">{{ strings.writeup }}{% include lang-badge.html post=writeup %}</a>{% endif %}
+    {%- if links.demo %}<a href="{{ links.demo }}">{{ strings.demo }}</a>{% endif %}
+  </div>
+</article>
+{%- endif %}
