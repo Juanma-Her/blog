@@ -140,6 +140,7 @@
     "interested_link": "Me interesa",
     "skills": "Con lo que trabajo",
     "hello_heading": "Escribime",
-    "hello_text": "¿Preguntas sobre un post, o ganas de charlar de código? El correo es la mejor forma de contactarme."
+    "hello_text": "¿Preguntas sobre un post, o ganas de charlar de código? El correo es la mejor forma de contactarme.",
+    "photo_placeholder": "[ tu foto ]"
   }
 }

@@ -64,6 +64,19 @@
       }
     },
     {
+      "start": "2024-03",
+      "end": null,
+      "title": {
+        "en": "[Degree]",
+        "es": "[Carrera]"
+      },
+      "org": "[University]",
+      "summary": {
+        "en": "[One line, e.g. thesis topic.]",
+        "es": "[Una línea, por ejemplo el tema de la tesis.]"
+      }
+    },
+    {
       "start": "2024-02",
       "end": "2025-02",
       "title": {
@@ -83,6 +96,13 @@
       "title": "Title of the talk",
       "venue": "Event name",
       "date": "2026-05",
+      "url": "https://example.org"
+    },
+    {
+      "kind": "article",
+      "title": "Title of the article",
+      "venue": "Publication",
+      "date": "2025-10",
       "url": "https://example.org"
     }
   ],
@@ -111,6 +131,19 @@
         "url": "https://example.org"
       },
       {
+        "kind": "scc",
+        "event": "ISC25 Student Cluster Competition",
+        "date": "2025-06",
+        "role": {
+          "en": "Team member",
+          "es": "Integrante"
+        },
+        "result": {
+          "en": "[Result]",
+          "es": "[Resultado]"
+        }
+      },
+      {
         "kind": "hackathon",
         "event": "[Hackathon name]",
         "date": "2025-09",
@@ -137,6 +170,13 @@
     {
       "label": "Slurm",
       "topic": "hpc"
+    },
+    {
+      "label": "Python",
+      "topic": "python"
+    },
+    {
+      "label": "Linux"
     },
     {
       "label": "Docker"
