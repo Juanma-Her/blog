@@ -15,6 +15,19 @@ bundle exec jekyll serve
 
 Then open http://localhost:4000.
 
+## Checks
+
+CI runs these on every push and deploys only if all pass. To run them locally:
+
+```sh
+bundle exec ruby scripts/validate.rb            # front matter and data files (schemas/)
+JEKYLL_ENV=production bundle exec jekyll build  # also fails on TeX errors and missing strings
+bundle exec ruby scripts/validate.rb --feeds    # the built Atom feeds
+bundle exec htmlproofer ./_site --disable-external
+```
+
+`htmlproofer` needs libcurl installed.
+
 ## Licences
 
 - Code: GPL-3.0-or-later, see [LICENSE](LICENSE).

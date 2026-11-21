@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "_data/topics.json (JSON contracts 4.1)",
+  "type": "object",
+  "propertyNames": {
+    "type": "string",
+    "pattern": "^[a-z0-9+]+(-[a-z0-9+]+)*$"
+  },
+  "additionalProperties": {
+    "oneOf": [
+      {
+        "type": "object",
+        "required": [
+          "label",
+          "dark",
+          "light_text",
+          "light_bar"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "$ref": "#/$defs/localized"
+          },
+          "dark": {
+            "type": "string",
+            "pattern": "^#[0-9a-f]{6}$"
+          },
+          "light_text": {
+            "type": "string",
+            "pattern": "^#[0-9a-f]{6}$"
+          },
+          "light_bar": {
+            "type": "string",
+            "pattern": "^#[0-9a-f]{6}$"
+          }
+        }
+      },
+      {
+        "type": "object",
+        "required": [
+          "hidden"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "hidden": {
+            "const": true
+          }
+        }
+      }
+    ]
+  },
+  "$defs": {
+    "localized": {
+      "type": "object",
+      "required": [
+        "en",
+        "es"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "en": {
+          "type": "string",
+          "minLength": 1
+        },
+        "es": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

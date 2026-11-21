@@ -21,11 +21,17 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      # Content validation (scripts/validate.rb) and htmlproofer are added in BLG-50.
+      # Any failing check stops the job, so nothing broken is deployed (Design document 13.1).
+      - name: Validate content
+        run: bundle exec ruby scripts/validate.rb
       - name: Build
         run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
+      - name: Validate feeds
+        run: bundle exec ruby scripts/validate.rb --feeds
+      - name: Check links
+        run: bundle exec htmlproofer ./_site --disable-external
       - uses: actions/upload-pages-artifact@v4
         if: github.event_name != 'pull_request'
         with:

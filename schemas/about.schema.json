@@ -1,0 +1,260 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "_data/about.json (JSON contracts 4.3)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "profile",
+    "headline",
+    "intro",
+    "experience",
+    "competitions",
+    "skills"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "photo",
+        "photo_alt",
+        "role",
+        "details"
+      ],
+      "properties": {
+        "photo": {
+          "type": "string",
+          "pattern": "^/"
+        },
+        "photo_alt": {
+          "$ref": "#/$defs/localized"
+        },
+        "role": {
+          "$ref": "#/$defs/localized"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "value"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "value": {
+                "$ref": "#/$defs/localized"
+              }
+            }
+          }
+        }
+      }
+    },
+    "headline": {
+      "$ref": "#/$defs/localized"
+    },
+    "intro": {
+      "$ref": "#/$defs/localized"
+    },
+    "experience": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "start",
+          "end",
+          "title",
+          "org",
+          "summary"
+        ],
+        "properties": {
+          "start": {
+            "type": "string",
+            "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+          },
+          "end": {
+            "oneOf": [
+              {
+                "type": "string",
+                "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": {
+            "$ref": "#/$defs/localized"
+          },
+          "org": {
+            "type": "string",
+            "minLength": 1
+          },
+          "summary": {
+            "$ref": "#/$defs/localized"
+          }
+        }
+      }
+    },
+    "elsewhere": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "title",
+          "venue",
+          "date",
+          "url"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "talk",
+              "article",
+              "podcast"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "venue": {
+            "type": "string",
+            "minLength": 1
+          },
+          "date": {
+            "type": "string",
+            "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https?://"
+          }
+        }
+      }
+    },
+    "competitions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "team",
+        "entries",
+        "interested_subject"
+      ],
+      "properties": {
+        "team": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name",
+            "summary"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "summary": {
+              "$ref": "#/$defs/localized"
+            },
+            "url": {
+              "type": "string",
+              "pattern": "^https?://"
+            }
+          }
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "event",
+              "date",
+              "role"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "scc",
+                  "hackathon"
+                ]
+              },
+              "event": {
+                "type": "string",
+                "minLength": 1
+              },
+              "date": {
+                "type": "string",
+                "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"
+              },
+              "role": {
+                "$ref": "#/$defs/localized"
+              },
+              "result": {
+                "$ref": "#/$defs/localized"
+              },
+              "url": {
+                "type": "string",
+                "pattern": "^https?://"
+              }
+            }
+          }
+        },
+        "interested_subject": {
+          "$ref": "#/$defs/localized"
+        }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "label"
+        ],
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "topic": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "localized": {
+      "type": "object",
+      "required": [
+        "en",
+        "es"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "en": {
+          "type": "string",
+          "minLength": 1
+        },
+        "es": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

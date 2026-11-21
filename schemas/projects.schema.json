@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "_data/projects.json (JSON contracts 4.2)",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "projects"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "projects": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "featured",
+          "type",
+          "status",
+          "title",
+          "description",
+          "stack",
+          "links",
+          "year"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/slug"
+          },
+          "featured": {
+            "type": "boolean"
+          },
+          "type": {
+            "enum": [
+              "tool",
+              "hpc",
+              "hackathon"
+            ]
+          },
+          "status": {
+            "enum": [
+              "active",
+              "maintained",
+              "finished",
+              "archived"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "$ref": "#/$defs/localized"
+          },
+          "stack": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "links": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "codeberg": {
+                "type": "string",
+                "pattern": "^https?://"
+              },
+              "github": {
+                "type": "string",
+                "pattern": "^https?://"
+              },
+              "team": {
+                "type": "string",
+                "pattern": "^https?://"
+              },
+              "demo": {
+                "type": "string",
+                "pattern": "^https?://"
+              },
+              "writeup": {
+                "$ref": "#/$defs/slug"
+              }
+            }
+          },
+          "terminal": {
+            "type": "object",
+            "required": [
+              "command",
+              "output"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "command": {
+                "type": "string"
+              },
+              "output": {
+                "type": "string"
+              }
+            }
+          },
+          "year": {
+            "type": "integer",
+            "minimum": 2000,
+            "maximum": 2100
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9+]+(-[a-z0-9+]+)*$"
+    },
+    "localized": {
+      "type": "object",
+      "required": [
+        "en",
+        "es"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "en": {
+          "type": "string",
+          "minLength": 1
+        },
+        "es": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}
