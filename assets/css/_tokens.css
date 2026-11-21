@@ -1,0 +1,34 @@
+/* Colour tokens (Design document 4.1). Components use only these.
+
+   Each token is light-dark(<light>, <dark>). The value used follows
+   color-scheme: the reader's choice in <html data-theme>, or the system
+   setting when nothing is chosen (also the case with JavaScript off). */
+
+:root {
+  color-scheme: light dark;
+
+  --bg:                light-dark(#fbf1c7, #282828);
+  --panel:             light-dark(#f2e5bc, #1d2021);
+  --card:              light-dark(#f9f5d7, #32302f);
+  --code-bg:           light-dark(#f9f5d7, #1d2021);
+  --border:            light-dark(#d5c4a1, #3c3836);
+  --border-strong:     light-dark(#bdae93, #504945);
+  --border-dashed:     light-dark(#a89984, #665c54);
+  --text:              light-dark(#3c3836, #ebdbb2);
+  --text-2:            light-dark(#504945, #bdae93);
+  --meta:              light-dark(#665c54, #a89984);
+  --accent:            light-dark(#af3a03, #fabd2f);
+  --on-accent:         light-dark(#fbf1c7, #1d2021);
+  --chip-active-bg:    light-dark(#3c3836, #ebdbb2);
+  --chip-active-text:  light-dark(#fbf1c7, #1d2021);
+  --note:              light-dark(#076678, #83a598);
+  --inline-code:       light-dark(#076678, #8ec07c);
+  --inline-code-bg:    light-dark(#f2e5bc, #1d2021);
+
+  --font-body:    "Inter", system-ui, sans-serif;
+  --font-heading: "Space Grotesk", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"]  { color-scheme: dark; }
