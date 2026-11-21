@@ -1,0 +1,62 @@
+---
+layout: base
+---
+{%- comment -%} Feed page (Design document 6.6): how to subscribe to this language's feed. {%- endcomment -%}
+{%- assign lang = page.lang -%}
+{%- assign strings = site.data.i18n[lang].feed -%}
+{%- if lang == "es" %}{% assign prefix = "/es" %}{% else %}{% assign prefix = "" %}{% endif -%}
+{%- assign feed_url = prefix | append: "/feed.xml" | absolute_url -%}
+{%- assign posts = site.posts | where: "lang", lang -%}
+
+{%- comment -%} Two topic feeds that exist in this language, for the tag note. {%- endcomment -%}
+{%- assign tags = posts | map: "tags" | uniq -%}
+{%- assign examples = "" | split: "" -%}
+{%- for topic in site.data.topics -%}
+  {%- if tags contains topic[0] %}{% unless topic[1].hidden %}{% assign examples = examples | push: topic[0] %}{% endunless %}{% endif -%}
+{%- endfor -%}
+{%- capture first %}<code>{{ prefix }}/feed/by_tag/{{ examples[0] }}.xml</code>{% endcapture -%}
+{%- capture second %}<code>{{ prefix }}/feed/by_tag/{{ examples[1] }}.xml</code>{% endcapture -%}
+
+<div class="container container--narrow feed-page">
+  <section class="feed-box">
+    <div class="feed-box-head">
+      <span class="feed-icon">{% include icon-rss.html %}</span>
+      <div>
+        <h1>{{ strings.heading }}</h1>
+        <p>{{ strings.intro }}</p>
+      </div>
+    </div>
+
+    <div class="feed-address">
+      <label for="feed-url">{{ strings.address_label }}</label>
+      <div>
+        <input id="feed-url" type="text" readonly value="{{ feed_url }}">
+        <button class="button button--accent" type="button" data-copy data-copy-target="feed-url" data-copied="{{ 'post.copied' | t: lang }}" hidden>{% include icon-copy.html %}<span data-copy-label>{{ "post.copy" | t: lang }}</span></button>
+        <span class="visually-hidden" aria-live="polite" data-copy-status></span>
+      </div>
+    </div>
+
+    <p class="feed-readers">
+      <a class="feed-what" href="{{ strings.what_is_url }}">{{ strings.what_is }} →</a>
+    </p>
+  </section>
+
+  <section aria-labelledby="feed-latest">
+    <div class="feed-latest-head">
+      <h2 id="feed-latest">{{ strings.latest }}</h2>
+      <a class="link-accent" href="{{ prefix }}/posts/">{{ strings.archive_link }} →</a>
+    </div>
+    <ul class="feed-list">
+      {%- for post in posts limit: 5 %}
+      {% include archive-row.html post=post feed=true %}
+      {%- endfor %}
+    </ul>
+  </section>
+
+  {%- if examples.size > 1 %}
+  <aside class="feed-note">
+    {% include icon-info.html %}
+    <p>{{ "feed.tag_note" | t: lang, first: first, second: second }}</p>
+  </aside>
+  {%- endif %}
+</div>

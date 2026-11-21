@@ -11,8 +11,10 @@
 {%- endif %}
 <script type="module" src="/assets/js/theme.js"></script>
 <script type="module" src="/assets/js/lang-switch.js"></script>
-{%- if page.collection == "posts" %}
+{%- if page.collection == "posts" or page.layout == "feed" %}
 <script type="module" src="/assets/js/copy.js"></script>
+{%- endif %}
+{%- if page.collection == "posts" %}
 {%- unless page.comments == false %}
 <script type="module" src="/assets/js/comments.js"></script>
 {%- endunless %}

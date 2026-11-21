@@ -148,6 +148,23 @@
   },
   "feed": {
     "subtitle": "Un blog de desarrollo sobre Rust, C/C++, herramientas, homelabs y HPC.",
-    "tag_subtitle": "Posts sobre {topic}"
+    "tag_subtitle": "Posts sobre {topic}",
+    "heading": "Este es un feed RSS",
+    "intro": "Suscribite copiando esta dirección en tu lector de feeds. Los posts nuevos aparecen ahí solos: sin cuenta, sin correo, sin rastreo.",
+    "address_label": "Dirección del feed",
+    "what_is": "¿Qué es RSS?",
+    "latest": "Qué hay en el feed",
+    "archive_link": "Archivo completo",
+    "tag_note": "¿Solo te interesa un tema? Cada etiqueta tiene su propio feed, por ejemplo {first} o {second}.",
+    "what_is_url": "https://es.wikipedia.org/wiki/RSS"
+  },
+  "not_found": {
+    "heading": "Página no encontrada",
+    "text": "La página que buscás no existe, o se movió. Revisá la dirección, o empezá desde uno de estos.",
+    "home": "Ir al inicio",
+    "posts": "Ver los posts",
+    "other_heading": "¿Buscabas algo en español?",
+    "other_text": "Esta página no existe. Probá desde el {link}.",
+    "other_link": "inicio en español"
   }
 }

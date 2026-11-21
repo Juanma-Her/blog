@@ -1,0 +1,29 @@
+---
+layout: base
+permalink: /404.html
+sitemap: false
+---
+{%- comment -%}
+  GitHub Pages serves this file, with status 404, for every missing URL. Its
+  language is unknown, so it is in English with a box for Spanish readers.
+{%- endcomment -%}
+{%- assign en = site.data.i18n.en.not_found -%}
+{%- assign es = site.data.i18n.es.not_found -%}
+{%- capture es_link %}<a href="/es/">{{ es.other_link }}</a>{% endcapture -%}
+<div class="container not-found">
+  <p class="not-found-code" aria-hidden="true">4<span>0</span>4</p>
+  <div class="not-found-text">
+    <div>
+      <h1>{{ en.heading }}</h1>
+      <p>{{ en.text }}</p>
+    </div>
+    <div class="not-found-links">
+      <a class="button button--accent" href="/">{{ en.home }}</a>
+      <a class="button button--outline" href="/posts/">{{ en.posts }}</a>
+    </div>
+    <div class="not-found-other" lang="es">
+      <p class="not-found-other-heading">{{ es.other_heading }}</p>
+      <p>{{ "not_found.other_text" | t: "es", link: es_link }}</p>
+    </div>
+  </div>
+</div>
