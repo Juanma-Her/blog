@@ -30,11 +30,11 @@
     "copied": "Copied",
     "minutes": "{n} min",
     "posts": "Posts",
-    "by": "By {author}",
-    "edit_text": "Every post is a Markdown file in the repository.",
     "previous": "Previous",
     "next": "Next",
-    "only_in": "Only in {language}"
+    "only_in": "Only in {language}",
+    "note": "Note",
+    "section_link": "Link to this section"
   },
   "comments": {
     "heading": "Comments",

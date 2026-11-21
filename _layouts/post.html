@@ -6,6 +6,9 @@ layout: base
 {%- assign topic_label = site.data.topics[tag].label | localize: lang -%}
 {%- assign minutes = content | read_minutes -%}
 {%- if lang == "es" %}{% assign prefix = "/es" %}{% else %}{% assign prefix = "" %}{% endif -%}
+{%- assign names = site.author.name | split: " " -%}
+{%- assign last_initial = names.last | slice: 0 -%}
+{%- assign initials = names.first | slice: 0 | append: last_initial -%}
 
 {%- comment -%} Posts are newest first: the previous post is the next item. {%- endcomment -%}
 {%- assign posts = site.posts | where: "lang", lang -%}
@@ -20,32 +23,46 @@ layout: base
 {%- assign related = lang | posts_for | where_exp: "post", "post.tags.first == tag" | where_exp: "post", "post.ref != page.ref" | slice: 0, site.more_on_count -%}
 {%- assign forge = site.forges.github -%}
 
-<article class="post container container--narrow">
+<article class="post container container--post">
   <header class="post-header">
     <p class="post-meta">
-      <a href="{{ prefix }}/posts/">{{ "post.posts" | t: lang }}</a> / {% include topic.html tag=tag %}
-      <span aria-hidden="true">·</span>
+      <a href="{{ prefix }}/posts/">{{ "post.posts" | t: lang }}</a>
+      <span aria-hidden="true">/</span>
+      <a href="{{ prefix }}/posts/?topic={{ tag }}">{% include topic.html tag=tag %}</a>
+      <span class="post-meta-dot" aria-hidden="true">·</span>
       <span class="post-read-time">{% include icon-clock.html %}{{ "post.read_time" | t: lang, n: minutes }}</span>
     </p>
     <h1>{{ page.title }}</h1>
-    <p class="post-byline">
-      {{ "post.by" | t: lang, author: site.author.name }} ·
-      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | localize_date: lang }}</time>
-      {%- if page.updated %}
-      {%- capture updated %}<time datetime="{{ page.updated | date_to_xmlschema }}">{{ page.updated | localize_date: lang }}</time>{% endcapture %}
-      · {{ "post.updated" | t: lang, date: updated }}
-      {%- endif %}
-    </p>
+    <p class="post-summary">{{ page.description }}</p>
+    <div class="post-byline">
+      <span class="avatar" aria-hidden="true">{{ initials }}</span>
+      <div>
+        <p class="post-author">{{ site.author.name }}</p>
+        <p class="post-date">
+          <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | localize_date: lang }}</time>
+          {%- if page.updated %}
+          {%- capture updated %}<time datetime="{{ page.updated | date_to_xmlschema }}">{{ page.updated | localize_date: lang }}</time>{% endcapture %}
+          · {{ "post.updated" | t: lang, date: updated }}
+          {%- endif %}
+        </p>
+      </div>
+      <ul class="post-tags">
+        {%- for post_tag in page.tags %}
+        {%- if site.data.topics[post_tag].label %}{% assign query = "topic=" %}{% else %}{% assign query = "q=" %}{% endif %}
+        <li><a href="{{ prefix }}/posts/?{{ query }}{{ post_tag }}"{% if forloop.first %} class="is-primary" style="--topic: light-dark({{ site.data.topics[post_tag].light_text }}, {{ site.data.topics[post_tag].dark }})"{% endif %}>#{{ post_tag }}</a></li>
+        {%- endfor %}
+      </ul>
+    </div>
   </header>
 
   <div class="prose">
     {{ content }}
   </div>
 
-  <aside class="post-edit">
-    <p><strong>{{ "post.spotted_mistake" | t: lang }}</strong> {{ "post.edit_text" | t: lang }}</p>
-    <a class="button button--outline" href="https://github.com/{{ forge.user }}/{{ forge.repo }}/edit/{{ forge.branch }}/{{ page.path }}">{{ "post.edit_github" | t: lang }}</a>
-  </aside>
+  <div class="post-edit">
+    <span>{{ "post.spotted_mistake" | t: lang }}</span>
+    <a href="https://github.com/{{ forge.user }}/{{ forge.repo }}/edit/{{ forge.branch }}/{{ page.path }}">{% include icon-pencil.html %}{{ "post.edit_github" | t: lang }}</a>
+  </div>
 
   {%- if previous or next %}
   <nav class="post-nav" aria-label="{{ 'post.previous' | t: lang }} / {{ 'post.next' | t: lang }}">
@@ -67,7 +84,7 @@ layout: base
     <h2 id="related-heading">{{ "post.more_on" | t: lang, topic: topic_label }}</h2>
     <div class="card-grid">
       {%- for post in related %}
-      {% include post-card.html post=post %}
+      {% include post-card.html post=post compact=true %}
       {%- endfor %}
     </div>
   </div>

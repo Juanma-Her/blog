@@ -1,6 +1,12 @@
 {%- comment -%}
   A topic label in its colour. include.tag is a key of topics.json.
-  The colours are set as --topic (text) and --topic-bar (bars and pills).
+  The colours are set as --topic (text) and --topic-bar (bars and dots).
+  include.bar: only the short coloured bar that tops a card.
 {%- endcomment -%}
 {%- assign topic = site.data.topics[include.tag] -%}
-<span class="topic" style="--topic: light-dark({{ topic.light_text }}, {{ topic.dark }}); --topic-bar: light-dark({{ topic.light_bar }}, {{ topic.dark }})">{{ topic.label | localize: page.lang }}</span>
+{%- capture colours %}--topic: light-dark({{ topic.light_text }}, {{ topic.dark }}); --topic-bar: light-dark({{ topic.light_bar }}, {{ topic.dark }}){% endcapture -%}
+{%- if include.bar -%}
+<span class="topic-bar" aria-hidden="true" style="{{ colours }}"></span>
+{%- else -%}
+<span class="topic" style="{{ colours }}">{{ topic.label | localize: page.lang }}</span>
+{%- endif -%}

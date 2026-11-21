@@ -1,9 +1,18 @@
+{%- comment -%}
+  A post card. include.post: the post. include.compact: bar, title and date
+  only, for the "More on" band.
+{%- endcomment -%}
 {%- assign post = include.post -%}
 {%- assign tag = post.tags | first -%}
 {%- assign minutes = post.content | read_minutes -%}
-<a class="post-card" href="{{ post.url }}" data-filter-item data-filter-key="{{ post.tags | join: ' ' }}">
+<a class="post-card{% if include.compact %} post-card--compact{% endif %}" href="{{ post.url }}" data-filter-item data-filter-key="{{ post.tags | join: ' ' }}">
+  {% include topic.html tag=tag bar=true %}
+  {%- unless include.compact %}
   {% include topic.html tag=tag %}
+  {%- endunless %}
   <span class="post-card-title" lang="{{ post.lang }}">{{ post.title }}</span>
+  {%- unless include.compact %}
   <span class="post-card-summary" lang="{{ post.lang }}">{{ post.description }}</span>
+  {%- endunless %}
   <span class="post-card-meta">{{ post.date | localize_date: page.lang }} · {{ "post.minutes" | t: page.lang, n: minutes }}{% include lang-badge.html post=post %}</span>
 </a>
