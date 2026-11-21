@@ -6,7 +6,17 @@
 {%- endcomment %}
 <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
 <link rel="stylesheet" href="/assets/css/main.css">
+{%- if page.collection == "posts" %}
+<link rel="stylesheet" href="/assets/katex/katex.min.css">
+{%- endif %}
 <script type="module" src="/assets/js/theme.js"></script>
+<script type="module" src="/assets/js/lang-switch.js"></script>
 {%- if page.lang == "es" %}{% assign feed = "/es/feed.xml" %}{% else %}{% assign feed = "/feed.xml" %}{% endif %}
 <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ feed }}">
+{%- if page.translations.size > 1 %}
+{%- for translation in page.translations %}
+<link rel="alternate" hreflang="{{ translation[0] }}" href="{{ translation[1] | absolute_url }}">
+{%- endfor %}
+<link rel="alternate" hreflang="x-default" href="{{ page.translations.en | absolute_url }}">
+{%- endif %}
 {% seo %}

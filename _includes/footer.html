@@ -1,8 +1,8 @@
 <footer class="site-footer">
   <p class="container">
     © {{ site.time | date: "%Y" }} {{ site.author.name }}
-    · <a href="https://www.gnu.org/licenses/gpl-3.0.html">Code: GPL-3.0</a>
-    · <a href="https://creativecommons.org/licenses/by-sa/4.0/">Posts: CC BY-SA 4.0</a>
-    · Hosted on GitHub Pages
+    · <a href="https://www.gnu.org/licenses/gpl-3.0.html">{{ "footer.code_licence" | t: page.lang }}</a>
+    · <a href="https://creativecommons.org/licenses/by-sa/4.0/">{{ "footer.content_licence" | t: page.lang }}</a>
+    · {{ "footer.hosted" | t: page.lang }}
   </p>
 </footer>

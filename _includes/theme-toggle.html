@@ -2,8 +2,8 @@
   Hidden until theme.js runs: without JavaScript the site follows the system theme.
 {%- endcomment -%}
 <button id="theme-toggle" class="icon-button" type="button" hidden
-        data-label-to-light="Switch to light theme"
-        data-label-to-dark="Switch to dark theme">
+        data-label-to-light="{{ 'theme.to_light' | t: page.lang }}"
+        data-label-to-dark="{{ 'theme.to_dark' | t: page.lang }}">
   <svg class="icon-sun" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
   <svg class="icon-moon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
 </button>

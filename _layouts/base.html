@@ -4,7 +4,7 @@
 {% include head.html %}
 </head>
 <body>
-<a class="skip-link" href="#content">Skip to content</a>
+<a class="skip-link" href="#content">{{ "skip_link" | t: page.lang }}</a>
 {% include header.html %}
 <main id="content">
 {{ content }}

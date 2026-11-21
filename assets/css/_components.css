@@ -85,3 +85,62 @@
 }
 
 .site-footer a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Language switch (BLG-15) */
+
+.lang-switch { position: relative; }
+
+.lang-switch-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.lang-switch-button::-webkit-details-marker { display: none; }
+.lang-switch-button:hover { color: var(--accent); }
+
+.lang-switch-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  z-index: 5;
+  min-width: 220px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  background: var(--card);
+}
+
+.lang-switch-menu a,
+.lang-switch-disabled {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.lang-switch-menu a:hover,
+.lang-switch-menu a:focus-visible { background: var(--panel); }
+
+.lang-switch-menu a[aria-current] { font-weight: 600; }
+.lang-switch-check { color: var(--accent); }
+
+.lang-switch-disabled { color: var(--meta); cursor: not-allowed; }
+.lang-switch-disabled small { flex-basis: 100%; font-size: 13px; }
+
+/* Math (KaTeX): a wide formula scrolls inside its block, never the page. */
+
+.katex-display { overflow-x: auto; overflow-y: hidden; padding-block: 4px; }

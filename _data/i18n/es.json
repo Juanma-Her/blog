@@ -1,0 +1,71 @@
+{
+  "skip_link": "Saltar al contenido",
+  "nav": {
+    "main_label": "Principal",
+    "home": "inicio",
+    "posts": "Posts",
+    "projects": "Proyectos",
+    "about": "Sobre mí",
+    "rss": "RSS"
+  },
+  "theme": {
+    "to_light": "Cambiar al tema claro",
+    "to_dark": "Cambiar al tema oscuro"
+  },
+  "lang_switch": {
+    "label": "Idioma: {language}",
+    "not_translated": "Este post no está traducido"
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español"
+  },
+  "post": {
+    "read_time": "{n} min de lectura",
+    "updated": "Actualizado el {date}",
+    "edit_codeberg": "Editar en Codeberg",
+    "edit_github": "Editar en GitHub",
+    "spotted_mistake": "¿Encontraste un error?",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "more_on": "Más sobre {topic}",
+    "copy": "Copiar",
+    "copied": "Copiado"
+  },
+  "comments": {
+    "heading": "Comentarios",
+    "intro": "Los comentarios están en las GitHub Discussions de este repositorio. Iniciá sesión con GitHub para participar.",
+    "no_js": "Los comentarios necesitan JavaScript. También podés leerlos y responder en GitHub."
+  },
+  "archive": {
+    "heading": "Todos los posts",
+    "search_label": "Buscar posts",
+    "search_placeholder": "Buscar en títulos, etiquetas y resúmenes…",
+    "all": "Todos",
+    "no_results": "Ningún post coincide.",
+    "clear": "Quitar filtros",
+    "results": "{n} posts"
+  },
+  "footer": {
+    "hosted": "Alojado en GitHub Pages",
+    "code_licence": "Código: GPL-3.0",
+    "content_licence": "Posts: CC BY-SA 4.0"
+  },
+  "date": {
+    "format": "%-d %b %Y",
+    "months": [
+      "ene",
+      "feb",
+      "mar",
+      "abr",
+      "may",
+      "jun",
+      "jul",
+      "ago",
+      "sep",
+      "oct",
+      "nov",
+      "dic"
+    ]
+  }
+}

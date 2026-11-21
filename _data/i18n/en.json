@@ -1,0 +1,71 @@
+{
+  "skip_link": "Skip to content",
+  "nav": {
+    "main_label": "Main",
+    "home": "home",
+    "posts": "Posts",
+    "projects": "Projects",
+    "about": "About",
+    "rss": "RSS"
+  },
+  "theme": {
+    "to_light": "Switch to light theme",
+    "to_dark": "Switch to dark theme"
+  },
+  "lang_switch": {
+    "label": "Language: {language}",
+    "not_translated": "This post isn't translated"
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español"
+  },
+  "post": {
+    "read_time": "{n} min read",
+    "updated": "Updated {date}",
+    "edit_codeberg": "Edit on Codeberg",
+    "edit_github": "Edit on GitHub",
+    "spotted_mistake": "Spotted a mistake?",
+    "previous": "Previous",
+    "next": "Next",
+    "more_on": "More on {topic}",
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "comments": {
+    "heading": "Comments",
+    "intro": "Comments live in this repo's GitHub Discussions. Sign in with GitHub to join in.",
+    "no_js": "Comments need JavaScript. You can also read and reply on GitHub."
+  },
+  "archive": {
+    "heading": "All posts",
+    "search_label": "Search posts",
+    "search_placeholder": "Search titles, tags and summaries…",
+    "all": "All",
+    "no_results": "No posts match.",
+    "clear": "Clear filters",
+    "results": "{n} posts"
+  },
+  "footer": {
+    "hosted": "Hosted on GitHub Pages",
+    "code_licence": "Code: GPL-3.0",
+    "content_licence": "Posts: CC BY-SA 4.0"
+  },
+  "date": {
+    "format": "%b %-d, %Y",
+    "months": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ]
+  }
+}
