@@ -1,9 +1,75 @@
 ---
 layout: base
 ---
-{%- comment -%} Placeholder body until the post layout of BLG-21. {%- endcomment %}
-<article class="container container--narrow">
-<h1>{{ page.title }}</h1>
-<p><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | localize_date: page.lang }}</time> · {{ page.tags | join: ", " }}</p>
-{{ content }}
+{%- assign lang = page.lang -%}
+{%- assign tag = page.tags | first -%}
+{%- assign topic_label = site.data.topics[tag].label | localize: lang -%}
+{%- assign minutes = content | read_minutes -%}
+{%- if lang == "es" %}{% assign prefix = "/es" %}{% else %}{% assign prefix = "" %}{% endif -%}
+
+{%- comment -%} Posts are newest first: the previous post is the next item. {%- endcomment -%}
+{%- assign posts = site.posts | where: "lang", lang -%}
+{%- for post in posts -%}
+  {%- if post.url == page.url %}{% assign index = forloop.index0 %}{% endif -%}
+{%- endfor -%}
+{%- assign previous_index = index | plus: 1 -%}
+{%- assign next_index = index | minus: 1 -%}
+{%- assign previous = posts[previous_index] -%}
+{%- if index > 0 %}{% assign next = posts[next_index] %}{% else %}{% assign next = nil %}{% endif -%}
+
+{%- assign related = posts | where_exp: "post", "post.tags.first == tag" | where_exp: "post", "post.url != page.url" | slice: 0, site.more_on_count -%}
+{%- assign forge = site.forges.github -%}
+
+<article class="post container container--narrow">
+  <header class="post-header">
+    <p class="post-meta">
+      <a href="{{ prefix }}/posts/">{{ "post.posts" | t: lang }}</a> / {% include topic.html tag=tag %}
+      <span aria-hidden="true">·</span>
+      <span class="post-read-time">{% include icon-clock.html %}{{ "post.read_time" | t: lang, n: minutes }}</span>
+    </p>
+    <h1>{{ page.title }}</h1>
+    <p class="post-byline">
+      {{ "post.by" | t: lang, author: site.author.name }} ·
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | localize_date: lang }}</time>
+      {%- if page.updated %}
+      {%- capture updated %}<time datetime="{{ page.updated | date_to_xmlschema }}">{{ page.updated | localize_date: lang }}</time>{% endcapture %}
+      · {{ "post.updated" | t: lang, date: updated }}
+      {%- endif %}
+    </p>
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  <aside class="post-edit">
+    <p><strong>{{ "post.spotted_mistake" | t: lang }}</strong> {{ "post.edit_text" | t: lang }}</p>
+    <a class="button button--outline" href="https://github.com/{{ forge.user }}/{{ forge.repo }}/edit/{{ forge.branch }}/{{ page.path }}">{{ "post.edit_github" | t: lang }}</a>
+  </aside>
+
+  {%- if previous or next %}
+  <nav class="post-nav" aria-label="{{ 'post.previous' | t: lang }} / {{ 'post.next' | t: lang }}">
+    {%- if previous %}
+    <a class="post-nav-link" href="{{ previous.url }}" rel="prev"><span>← {{ "post.previous" | t: lang }}</span>{{ previous.title }}</a>
+    {%- endif %}
+    {%- if next %}
+    <a class="post-nav-link post-nav-link--next" href="{{ next.url }}" rel="next"><span>{{ "post.next" | t: lang }} →</span>{{ next.title }}</a>
+    {%- endif %}
+  </nav>
+  {%- endif %}
+
+  {%- comment -%} Comments (giscus) arrive in BLG-32. {%- endcomment %}
 </article>
+
+{%- if related.size > 0 %}
+<section class="related" aria-labelledby="related-heading">
+  <div class="container">
+    <h2 id="related-heading">{{ "post.more_on" | t: lang, topic: topic_label }}</h2>
+    <div class="card-grid">
+      {%- for post in related %}
+      {% include post-card.html post=post %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}

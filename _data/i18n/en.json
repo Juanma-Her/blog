@@ -23,15 +23,17 @@
   "post": {
     "read_time": "{n} min read",
     "updated": "Updated {date}",
-    "edit_codeberg": "Edit on Codeberg",
     "edit_github": "Edit on GitHub",
     "spotted_mistake": "Spotted a mistake?",
-    "previous": "Previous",
-    "next": "Next",
     "more_on": "More on {topic}",
     "copy": "Copy",
     "copied": "Copied",
-    "minutes": "{n} min"
+    "minutes": "{n} min",
+    "posts": "Posts",
+    "by": "By {author}",
+    "edit_text": "Every post is a Markdown file in the repository.",
+    "previous": "Previous",
+    "next": "Next"
   },
   "comments": {
     "heading": "Comments",

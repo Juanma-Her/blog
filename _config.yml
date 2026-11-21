@@ -15,7 +15,7 @@ future: false
 
 words_per_minute: 200
 home_cards: 6
-related_posts: 3
+more_on_count: 3
 feed_limit: 20
 
 forges:

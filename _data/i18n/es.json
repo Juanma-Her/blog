@@ -23,15 +23,17 @@
   "post": {
     "read_time": "{n} min de lectura",
     "updated": "Actualizado el {date}",
-    "edit_codeberg": "Editar en Codeberg",
     "edit_github": "Editar en GitHub",
     "spotted_mistake": "¿Encontraste un error?",
-    "previous": "Anterior",
-    "next": "Siguiente",
     "more_on": "Más sobre {topic}",
     "copy": "Copiar",
     "copied": "Copiado",
-    "minutes": "{n} min"
+    "minutes": "{n} min",
+    "posts": "Posts",
+    "by": "Por {author}",
+    "edit_text": "Cada post es un archivo Markdown en el repositorio.",
+    "previous": "Anterior",
+    "next": "Siguiente"
   },
   "comments": {
     "heading": "Comentarios",
