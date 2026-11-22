@@ -89,6 +89,16 @@
     },
     "entries": [
       {
+        "kind": "hackathon",
+        "event": "NASA Space Apps - Córdoba",
+        "date": "2026-11",
+        "role": {
+          "en": "Team lead and software design",
+          "es": "Líder de equipo y diseño del software"
+        },
+        "url": "https://www.spaceappschallenge.org/2026/local-events/cordoba/"
+      },
+      {
         "kind": "scc",
         "event": "CARLA 2026 Student Cluster Competition",
         "date": "2026-09",
@@ -101,16 +111,6 @@
           "es": "3er Puesto"
         },
         "url": "https://supercomputo.unc.edu.ar/2026/11/02/scc-carla-2026-la-competencia-estudiantil-que-llevo-el-hardware-al-limite/"
-      },
-      {
-        "kind": "hackathon",
-        "event": "NASA Space Apps - Córdoba",
-        "date": "2026-11",
-        "role": {
-          "en": "Team lead and software design",
-          "es": "Líder de equipo y diseño del software"
-        },
-        "url": "https://www.spaceappschallenge.org/2026/local-events/cordoba/"
       }
     ],
     "interested_subject": {
