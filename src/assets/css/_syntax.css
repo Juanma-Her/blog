@@ -1,7 +1,10 @@
-/* Syntax colours (Design document 4.2). Rouge emits these classes. */
+/* Syntax colours (Design document 4.2). Rouge emits these classes.
+   Gruvbox, nudged where needed to reach 4.5:1 on both code backgrounds:
+   dark red #fb4934 -> #fb5d4a, dark comments #928374 -> #a89984,
+   light diff green #79740e -> #6b660c. */
 
 .highlight .k, .highlight .kd, .highlight .kn, .highlight .kp,
-.highlight .kr, .highlight .kv, .highlight .ow          { color: light-dark(#9d0006, #fb4934); }  /* keywords */
+.highlight .kr, .highlight .kv, .highlight .ow          { color: light-dark(#9d0006, #fb5d4a); }  /* keywords */
 .highlight .nf, .highlight .fm, .highlight .s,
 .highlight .s1, .highlight .s2, .highlight .sb,
 .highlight .sc, .highlight .sd, .highlight .sh,
@@ -15,7 +18,7 @@
 .highlight .il                                          { color: light-dark(#8f3f71, #d3869b); }  /* numbers */
 .highlight .cp, .highlight .cpf, .highlight .nd         { color: light-dark(#427b58, #8ec07c); }  /* preprocessor, decorators */
 .highlight .c, .highlight .c1, .highlight .cm,
-.highlight .cs, .highlight .ch                          { color: light-dark(#665c54, #928374); font-style: italic; }  /* comments */
+.highlight .cs, .highlight .ch                          { color: light-dark(#665c54, #a89984); font-style: italic; }  /* comments */
 .highlight .gp                                          { color: var(--meta); }  /* shell prompt */
-.highlight .gd                                          { color: light-dark(#9d0006, #fb4934); }  /* diff: removed */
-.highlight .gi                                          { color: light-dark(#79740e, #b8bb26); }  /* diff: added */
+.highlight .gd                                          { color: light-dark(#9d0006, #fb5d4a); }  /* diff: removed */
+.highlight .gi                                          { color: light-dark(#6b660c, #b8bb26); }  /* diff: added */

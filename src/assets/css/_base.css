@@ -62,6 +62,17 @@ code, kbd, pre { font-family: var(--font-mono); font-size: 0.9em; }
   .container { padding-inline: 16px; }
 }
 
+/* Small links get an invisible 44px-tall click area (Design document 4.3),
+   so they keep their look but are easy to hit. */
+.post-tags a, .project-links a, .feed-what { position: relative; }
+.post-tags a::after, .project-links a::after, .feed-what::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 44px;
+  translate: 0 -50%;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
