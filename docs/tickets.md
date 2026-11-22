@@ -553,7 +553,7 @@ Given that the profile card needs a photo, when Juan Martín adds one, then the 
 | BLG-50 | Content validation and link checks in CI | 3 | BLG-10 | Done |
 | BLG-51 | Accessibility, performance and manual pass | 2.5 | BLG-34, BLG-42 | Done (on sample content) |
 | BLG-52 | README, licences and public repository | 1 | BLG-05 | Done |
-| BLG-53 | Launch | 0.5 | BLG-50 to BLG-52 | To do |
+| BLG-53 | Launch | 0.5 | BLG-50 to BLG-52 | Done |
 
 BLG-50 only needs BLG-10 and can be done any time after it; doing it early catches content errors sooner.
 
@@ -619,6 +619,7 @@ Given that everything works on fixtures and real content is in, when Juan Martí
 
 - The Plan's launch checklist is complete.
 - No fixture content is reachable on the live site.
+- Result (2026-11-22): the site is live. The sample posts are deleted, the unused interpreters topic is removed, and _data/ holds only real data; the old sample addresses and tag feeds return 404 and the build has no placeholders. ~/strinix shows in the header, every page title and the feeds, in both languages. HTTP redirects to HTTPS; CI passes; Codeberg matches GitHub. Both versions of the first post load giscus with the shared term post:building-this-blog. The Plan's launch checklist is ticked, with one post and its translation under BLG-42's cut. The planning documents are exported to docs/ as a launch snapshot. Commits 490b16e, a2026f0, 7ab4709, 996b4de.
 
 ### Extensions
 

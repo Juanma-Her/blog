@@ -90,13 +90,13 @@ The rule of the plan: **nothing from M4 starts until M2 is merged**, so the cont
 
 ### Launch checklist
 
-- [ ] strinix.com.ar opens over HTTPS, in both themes and both languages.
-- [ ] At least two real posts, one of them in both languages.
-- [ ] Projects and about pages with real data, a Codeberg or GitHub link (or both) on every project.
-- [ ] The RSS link opens the feed page, and the feed address imports into a feed reader.
-- [ ] Comments work on a post.
-- [ ] CI passes: build, schema validation, link check.
-- [ ] Codeberg mirror matches GitHub.
+- [x] strinix.com.ar opens over HTTPS, in both themes and both languages.
+- [x] At least two real posts, one of them in both languages.
+- [x] Projects and about pages with real data, a Codeberg or GitHub link (or both) on every project.
+- [x] The RSS link opens the feed page, and the feed address imports into a feed reader.
+- [x] Comments work on a post.
+- [x] CI passes: build, schema validation, link check.
+- [x] Codeberg mirror matches GitHub.
 
 ### Risks and what to cut
 
