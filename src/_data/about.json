@@ -7,22 +7,22 @@
       "es": "Juan Martín Hernández"
     },
     "role": {
-      "en": "Student and developer",
-      "es": "Estudiante y desarrollador"
+      "en": "Computer Science student",
+      "es": "Estudiante de Ciencias de la Computación"
     },
     "details": [
       {
         "key": "based",
         "value": {
-          "en": "[City, Country]",
-          "es": "[Ciudad, País]"
+          "en": "Argentina",
+          "es": "Argentina"
         }
       },
       {
         "key": "writes",
         "value": {
-          "en": "Rust, C/C++, HPC",
-          "es": "Rust, C/C++, HPC"
+          "en": "C/C++, Assembly, Computer Graphics, HPC",
+          "es": "C/C++, Ensamblador, Gráficos, HPC"
         }
       },
       {
@@ -35,122 +35,82 @@
       {
         "key": "team",
         "value": {
-          "en": "[University] HPC",
-          "es": "HPC de [Universidad]"
+          "en": "Team Carpinchos - UNC Supercómputo",
+          "es": "Team Carpinchos - UNC Supercómputo"
         }
       }
     ]
   },
   "headline": {
-    "en": "I build systems and write down what I learn.",
-    "es": "Armo sistemas y escribo lo que aprendo."
+    "en": "I like systems programming and (try to) write down what I learn.",
+    "es": "Me gusta la programación de sistemas y trato de escribir lo que voy aprendiendo."
   },
   "intro": {
-    "en": "I study [degree] at [University] and spend most of my free time on **HPC** and **Rust**.\n\nThis blog is where I write down what I learn, so I can find it later and so you can skip the parts I got wrong.",
-    "es": "Estudio [carrera] en [Universidad] y paso casi todo mi tiempo libre con **HPC** y **Rust**.\n\nEste blog es donde anoto lo que aprendo, para encontrarlo después y para que te ahorres las partes en las que me equivoqué."
+    "en": "I study Computer Science at *FaMAF - UNC* and spend most of my free time doing stuff on my **homelab** and experimenting with **C/C++**.\n\nThis blog is where I write down what I learn, so I can find it later and so you can skip the parts I got wrong.",
+    "es": "Estudio Ciencias de la Computación en *FaMAF - UNC* y paso casi todo mi tiempo libre haciendo cosas en mi **homelab** y experimentando con **C/C++**.\n\nEste blog es donde anoto lo que aprendo, para encontrarlo después y para que te ahorres las partes en las que me equivoqué."
   },
   "experience": [
     {
-      "start": "2025-03",
+      "start": "2026-11",
       "end": null,
       "title": {
-        "en": "Member, HPC team",
-        "es": "Integrante, equipo de HPC"
+        "en": "Member, Team Carpinchos",
+        "es": "Integrante, Team Carpinchos"
       },
-      "org": "[University]",
+      "org": "UNC Supercómputo",
       "summary": {
-        "en": "Building and tuning the competition cluster.",
-        "es": "Armado y ajuste del clúster de competencia."
+        "en": "Benchmarking and tuning the competition cluster.",
+        "es": "Benchmarking y ajuste del clúster de competencia."
       }
     },
     {
       "start": "2024-03",
       "end": null,
       "title": {
-        "en": "[Degree]",
-        "es": "[Carrera]"
+        "en": "Computer Science",
+        "es": "Ciencias de la Computación"
       },
-      "org": "[University]",
+      "org": "FaMAF - UNC",
       "summary": {
-        "en": "[One line, e.g. thesis topic.]",
-        "es": "[Una línea, por ejemplo el tema de la tesis.]"
-      }
-    },
-    {
-      "start": "2024-02",
-      "end": "2025-02",
-      "title": {
-        "en": "Teaching assistant",
-        "es": "Ayudante de cátedra"
-      },
-      "org": "[University]",
-      "summary": {
-        "en": "Labs for an operating systems course.",
-        "es": "Prácticos de una materia de sistemas operativos."
+        "en": "Third year; focused on parallel computing and systems programming.",
+        "es": "Tercer año; con foco en computación paralela y programación de sistemas."
       }
     }
   ],
-  "elsewhere": [
-    {
-      "kind": "talk",
-      "title": "Title of the talk",
-      "venue": "Event name",
-      "date": "2026-05",
-      "url": "https://example.org"
-    },
-    {
-      "kind": "article",
-      "title": "Title of the article",
-      "venue": "Publication",
-      "date": "2025-10",
-      "url": "https://example.org"
-    }
-  ],
+  "elsewhere": [],
   "competitions": {
     "team": {
-      "name": "[University] HPC team",
+      "name": "Team Carpinchos - UNC Supercómputo",
       "summary": {
-        "en": "A student team that builds a small cluster and competes on real workloads.",
-        "es": "Un equipo de estudiantes que arma un clúster chico y compite con cargas reales."
+        "en": "UNC's HPC team, using international competitions to train students and grow HPC in Argentina.",
+        "es": "Equipo de HPC de la UNC, compitiendo internacionalmente para formar estudiantes y hacer crecer el HPC en Argentina."
       },
-      "url": "https://example.org"
+      "url": "https://carpinchosteam.github.io/"
     },
     "entries": [
       {
         "kind": "scc",
-        "event": "SC26 Student Cluster Competition",
-        "date": "2026-11",
+        "event": "CARLA 2026 Student Cluster Competition",
+        "date": "2026-09",
         "role": {
-          "en": "Team member",
-          "es": "Integrante"
+          "en": "SigSegv Team member",
+          "es": "Integrante de SigSegv"
         },
         "result": {
-          "en": "Finalist",
-          "es": "Finalista"
+          "en": "3rd Place",
+          "es": "3er Puesto"
         },
-        "url": "https://example.org"
-      },
-      {
-        "kind": "scc",
-        "event": "ISC25 Student Cluster Competition",
-        "date": "2025-06",
-        "role": {
-          "en": "Team member",
-          "es": "Integrante"
-        },
-        "result": {
-          "en": "[Result]",
-          "es": "[Resultado]"
-        }
+        "url": "https://supercomputo.unc.edu.ar/2026/11/02/scc-carla-2026-la-competencia-estudiantil-que-llevo-el-hardware-al-limite/"
       },
       {
         "kind": "hackathon",
-        "event": "[Hackathon name]",
-        "date": "2025-09",
+        "event": "NASA Space Apps - Córdoba",
+        "date": "2026-11",
         "role": {
-          "en": "Backend",
-          "es": "Backend"
-        }
+          "en": "Team lead and software design",
+          "es": "Líder de equipo y diseño del software"
+        },
+        "url": "https://www.spaceappschallenge.org/2026/local-events/cordoba/"
       }
     ],
     "interested_subject": {
@@ -160,16 +120,16 @@
   },
   "skills": [
     {
-      "label": "Rust",
-      "topic": "rust"
-    },
-    {
       "label": "C/C++",
       "topic": "cpp"
     },
     {
-      "label": "Slurm",
-      "topic": "hpc"
+      "label": "Assembly",
+      "topic": "asm"
+    },
+    {
+      "label": "Computer Graphics",
+      "topic": "graphics"
     },
     {
       "label": "Python",
@@ -177,9 +137,6 @@
     },
     {
       "label": "Linux"
-    },
-    {
-      "label": "Docker"
     },
     {
       "label": "Neovim",

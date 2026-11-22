@@ -53,6 +53,24 @@
     "light_text": "#8f3f71",
     "light_bar": "#8f3f71"
   },
+  "asm": {
+    "label": {
+      "en": "Assembly",
+      "es": "Ensamblador"
+    },
+    "dark": "#fb6a55",
+    "light_text": "#9d0006",
+    "light_bar": "#9d0006"
+  },
+  "graphics": {
+    "label": {
+      "en": "Computer Graphics",
+      "es": "Gráficos"
+    },
+    "dark": "#8ec07c",
+    "light_text": "#504945",
+    "light_bar": "#427b58"
+  },
   "interpreters": {
     "hidden": true
   },
