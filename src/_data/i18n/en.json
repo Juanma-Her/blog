@@ -147,7 +147,7 @@
     "photo_placeholder": "[ your photo ]"
   },
   "feed": {
-    "subtitle": "A dev blog about Rust, C/C++, tooling, homelabs and HPC.",
+    "subtitle": "A dev blog about C/C++, Linux, graphics, homelabs and HPC.",
     "tag_subtitle": "Posts about {topic}",
     "heading": "This is an RSS feed",
     "intro": "Subscribe by copying the address below into your feed reader. New posts show up there automatically: no account, no email, no tracking.",
@@ -170,7 +170,7 @@
   "pages": {
     "home": {
       "title": "~/strinix",
-      "description": "A dev blog about Rust, C/C++, tooling, homelabs and HPC."
+      "description": "A dev blog about C/C++, Linux, graphics, homelabs and HPC."
     },
     "archive": {
       "title": "All posts",
