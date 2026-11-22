@@ -13,18 +13,18 @@
       "en": "C/C++",
       "es": "C/C++"
     },
-    "dark": "#458588",
-    "light_text": "#458588",
-    "light_bar": "#458588"
+    "dark": "#83a598",
+    "light_text": "#076678",
+    "light_bar": "#076678"
   },
   "homelab": {
     "label": {
       "en": "Homelab",
       "es": "Homelab"
     },
-    "dark": "#83a598",
-    "light_text": "#076678",
-    "light_bar": "#076678"
+    "dark": "#b496d6",
+    "light_text": "#6a4c93",
+    "light_bar": "#6a4c93"
   },
   "tooling": {
     "label": {

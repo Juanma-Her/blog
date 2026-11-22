@@ -8,9 +8,10 @@
 {%- endcomment -%}
 {%- assign current = page.lang -%}
 <details class="lang-switch">
-  <summary class="lang-switch-button" aria-label="{{ 'lang_switch.label' | t: current, language: site.data.i18n[current].languages[current] }}">
+  {%- comment -%} The spoken name starts with the visible "EN", so voice control users can say it (WCAG 2.5.3). {%- endcomment %}
+  <summary class="lang-switch-button">
     <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-    {{ current | upcase }}
+    {{ current | upcase }}<span class="visually-hidden">, {{ 'lang_switch.label' | t: current, language: site.data.i18n[current].languages[current] }}</span>
     <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
   <ul class="lang-switch-menu">
