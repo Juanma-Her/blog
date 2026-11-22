@@ -9,6 +9,7 @@ This repository lives on GitHub ([Juanma-Her/blog](https://github.com/Juanma-Her
 - `src/`: everything that becomes the website. Posts are in `src/_posts/en/` and `src/_posts/es/`, the editable data in `src/_data/`, and the page files in `src/pages/`. Jekyll builds it into `_site/`, which is not tracked.
 - `schemas/` and `scripts/`: the content checks CI runs before each deploy.
 - `.github/workflows/`: build, check, deploy and mirror to Codeberg.
+- `docs/`: the planning documents as of launch (plan, specification, design, JSON contracts, tickets) and `content-guide.md`, a quick reference for editing posts and data.
 - `_config.yml`: site settings; `source: src` points Jekyll at `src/`.
 
 ## Run it locally
