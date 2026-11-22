@@ -125,11 +125,17 @@
       "topic": "cpp"
     },
     {
-      "label": "Assembly",
+      "label": {
+        "en": "Assembly",
+        "es": "Ensamblador"
+      },
       "topic": "asm"
     },
     {
-      "label": "Computer Graphics",
+      "label": {
+        "en": "Computer Graphics",
+        "es": "Computación gráfica"
+      },
       "topic": "graphics"
     },
     {

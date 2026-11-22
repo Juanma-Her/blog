@@ -231,8 +231,15 @@
         ],
         "properties": {
           "label": {
-            "type": "string",
-            "minLength": 1
+            "oneOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "$ref": "#/$defs/localized"
+              }
+            ]
           },
           "topic": {
             "type": "string"

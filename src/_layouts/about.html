@@ -102,7 +102,7 @@ layout: base
     <ul class="skills">
       {%- for skill in about.skills %}
       {%- assign topic = site.data.topics[skill.topic] %}
-      <li><span class="chip-dot" aria-hidden="true"{% if topic %} style="--topic-bar: light-dark({{ topic.light_bar }}, {{ topic.dark }})"{% endif %}></span>{{ skill.label }}</li>
+      <li><span class="chip-dot" aria-hidden="true"{% if topic %} style="--topic-bar: light-dark({{ topic.light_bar }}, {{ topic.dark }})"{% endif %}></span>{{ skill.label | localize: lang }}</li>
       {%- endfor %}
     </ul>
   </section>
