@@ -81,6 +81,7 @@
   "competitions": {
     "team": {
       "name": "Team Carpinchos - UNC Supercómputo",
+      "logo": "/assets/img/carpinchos.png",
       "summary": {
         "en": "UNC's HPC team, using international competitions to train students and grow HPC in Argentina.",
         "es": "Equipo de HPC de la UNC, compitiendo internacionalmente para formar estudiantes y hacer crecer el HPC en Argentina."

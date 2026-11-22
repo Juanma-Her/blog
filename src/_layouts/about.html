@@ -73,8 +73,13 @@ layout: base
   <section aria-labelledby="competitions-heading">
     <h2 id="competitions-heading">{{ strings.competitions }}</h2>
     {%- assign team = about.competitions.team %}
+    {%- assign team_logo = site.static_files | where: "path", team.logo | first %}
     <div class="team-card">
+      {%- if team_logo %}
+      <img class="team-icon team-icon--image" src="{{ team.logo }}" alt="" width="52" height="52">
+      {%- else %}
       <span class="team-icon">{% include icon-server.html %}</span>
+      {%- endif %}
       <div>
         <p class="team-name">{% if team.url %}<a href="{{ team.url }}">{{ team.name }}</a>{% else %}{{ team.name }}{% endif %}</p>
         <p class="team-summary">{{ team.summary | localize: lang | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>

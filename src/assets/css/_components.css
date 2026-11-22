@@ -753,6 +753,7 @@
   background: var(--accent);
   color: var(--on-accent);
 }
+.team-icon--image { object-fit: cover; background: none; }
 
 .team-card > div { flex: 1 1 300px; display: flex; flex-direction: column; gap: 2px; }
 .team-name { font-family: var(--font-heading); font-size: 20px; font-weight: 700; }
