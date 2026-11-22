@@ -4,6 +4,13 @@ Source of [strinix.com.ar](https://strinix.com.ar), a bilingual (English and Spa
 
 This repository lives on GitHub ([Juanma-Her/blog](https://github.com/Juanma-Her/blog)) and is mirrored to Codeberg ([Strinix/blog](https://codeberg.org/Strinix/blog)). The Codeberg copy is overwritten on every deploy, so changes go through GitHub; a fix proposed on Codeberg is applied on GitHub by hand.
 
+## Layout
+
+- `src/`: everything that becomes the website. Posts are in `src/_posts/en/` and `src/_posts/es/`, the editable data in `src/_data/`, and the page files in `src/pages/`. Jekyll builds it into `_site/`, which is not tracked.
+- `schemas/` and `scripts/`: the content checks CI runs before each deploy.
+- `.github/workflows/`: build, check, deploy and mirror to Codeberg.
+- `_config.yml`: site settings; `source: src` points Jekyll at `src/`.
+
 ## Run it locally
 
 Needs Ruby (see `.ruby-version`) and Bundler.

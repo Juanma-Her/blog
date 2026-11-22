@@ -14,6 +14,7 @@ require "rexml/document"
 require "yaml"
 
 ROOT = File.expand_path("..", __dir__)
+SITE = File.join(ROOT, "src") # Jekyll's source (_config.yml: source)
 LANGUAGES = %w[en es].freeze
 
 def relative(path) = path.delete_prefix("#{ROOT}/")
@@ -56,12 +57,12 @@ def check_content
   problems = []
   report = ->(file, problem) { problems << "#{file}: #{problem}" }
 
-  topics = read_json(File.join(ROOT, "_data/topics.json"))
-  schema_problems("topics.schema.json", topics).each { |p| report.call("_data/topics.json", p) }
+  topics = read_json(File.join(SITE, "_data/topics.json"))
+  schema_problems("topics.schema.json", topics).each { |p| report.call("src/_data/topics.json", p) }
 
   # Posts
   refs = Hash.new { |hash, key| hash[key] = [] }
-  Dir[File.join(ROOT, "_posts/*/*.md")].sort.each do |path|
+  Dir[File.join(SITE, "_posts/*/*.md")].sort.each do |path|
     file = relative(path)
     folder = File.basename(File.dirname(path))
     data = front_matter(path)
@@ -71,7 +72,7 @@ def check_content
     report.call(file, %(folder "#{folder}" is not a language (#{LANGUAGES.join(', ')}))) unless LANGUAGES.include?(folder)
 
     Array(data["tags"]).each_with_index do |tag, i|
-      report.call(file, %(tags[#{i}] "#{tag}" is not a topic in _data/topics.json)) unless topics.key?(tag)
+      report.call(file, %(tags[#{i}] "#{tag}" is not a topic in src/_data/topics.json)) unless topics.key?(tag)
     end
     primary = Array(data["tags"]).first
     if primary && topics.dig(primary, "hidden")
@@ -93,43 +94,43 @@ def check_content
   post_refs = refs.keys.map(&:first)
 
   # Projects
-  projects = read_json(File.join(ROOT, "_data/projects.json"))
-  schema_problems("projects.schema.json", projects).each { |p| report.call("_data/projects.json", p) }
+  projects = read_json(File.join(SITE, "_data/projects.json"))
+  schema_problems("projects.schema.json", projects).each { |p| report.call("src/_data/projects.json", p) }
   list = Array(projects["projects"])
   featured = list.count { |project| project["featured"] }
-  report.call("_data/projects.json", "exactly one featured project required, found #{featured}") unless featured == 1
+  report.call("src/_data/projects.json", "exactly one featured project required, found #{featured}") unless featured == 1
   list.each_with_index do |project, i|
     links = project["links"] || {}
     unless links["codeberg"] || links["github"] || links["team"]
-      report.call("_data/projects.json", "projects[#{i}] needs links.codeberg, links.github or links.team")
+      report.call("src/_data/projects.json", "projects[#{i}] needs links.codeberg, links.github or links.team")
     end
     if links["writeup"] && !post_refs.include?(links["writeup"])
-      report.call("_data/projects.json", %(projects[#{i}] links.writeup "#{links['writeup']}" is not the ref of any post))
+      report.call("src/_data/projects.json", %(projects[#{i}] links.writeup "#{links['writeup']}" is not the ref of any post))
     end
   end
 
   # About
-  about = read_json(File.join(ROOT, "_data/about.json"))
-  schema_problems("about.schema.json", about).each { |p| report.call("_data/about.json", p) }
+  about = read_json(File.join(SITE, "_data/about.json"))
+  schema_problems("about.schema.json", about).each { |p| report.call("src/_data/about.json", p) }
   Array(about["skills"]).each_with_index do |skill, i|
     if skill["topic"] && !topics.key?(skill["topic"])
-      report.call("_data/about.json", %(skills[#{i}] topic "#{skill['topic']}" is not a topic in _data/topics.json))
+      report.call("src/_data/about.json", %(skills[#{i}] topic "#{skill['topic']}" is not a topic in src/_data/topics.json))
     end
   end
 
   # Strings
-  strings = LANGUAGES.to_h { |lang| [lang, read_json(File.join(ROOT, "_data/i18n/#{lang}.json"))] }
+  strings = LANGUAGES.to_h { |lang| [lang, read_json(File.join(SITE, "_data/i18n/#{lang}.json"))] }
   strings.each do |lang, data|
-    schema_problems("i18n.schema.json", data).each { |p| report.call("_data/i18n/#{lang}.json", p) }
+    schema_problems("i18n.schema.json", data).each { |p| report.call("src/_data/i18n/#{lang}.json", p) }
   end
   LANGUAGES.permutation(2).each do |lang, other|
     (keys(strings[other]) - keys(strings[lang])).each do |key|
-      report.call("_data/i18n/#{lang}.json", %(key "#{key}" missing (present in #{other}.json)))
+      report.call("src/_data/i18n/#{lang}.json", %(key "#{key}" missing (present in #{other}.json)))
     end
   end
   Array(about.dig("profile", "details")).each_with_index do |detail, i|
     unless strings["en"].dig("about", "details", detail["key"])
-      report.call("_data/about.json", %(profile.details[#{i}] key "#{detail['key']}" has no string about.details.#{detail['key']}))
+      report.call("src/_data/about.json", %(profile.details[#{i}] key "#{detail['key']}" has no string about.details.#{detail['key']}))
     end
   end
 

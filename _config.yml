@@ -1,6 +1,10 @@
 # Site constants (Design document 1.1, JSON contracts 5).
 # Layouts, plugins and scripts read settings only from here.
 
+# Everything that becomes the website lives in src/; the repository root keeps
+# only tooling (workflow, schemas, scripts, Gemfile) and docs.
+source: src
+
 title: "~/strinix"
 description: "A dev blog about Rust, C/C++, tooling, homelabs and HPC."
 url: "https://strinix.com.ar"
@@ -49,15 +53,7 @@ defaults:
     values: { lang: "en", layout: "post", permalink: "/posts/:title/" }
   - scope: { path: "_posts/es" }
     values: { lang: "es", layout: "post", permalink: "/es/posts/:title/" }
-  - scope: { path: "es" }
+  - scope: { path: "pages/es" }
     values: { lang: "es" }
   - scope: { path: "" }
     values: { lang: "en" }
-
-exclude:
-  - README.md
-  - LICENSE
-  - LICENSE-content
-  - Gemfile
-  - Gemfile.lock
-  - vendor

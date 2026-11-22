@@ -18,7 +18,8 @@ module Strinix
     KATEX_ERROR = /<span class="katex-error" title="([^"]*)"[^>]*>(.*?)<\/span>/m
 
     def self.report(post, problem)
-      message = "Math error in #{post.relative_path}: #{problem}"
+      file = File.join(File.basename(post.site.source), post.relative_path) # src/_posts/...
+      message = "Math error in #{file}: #{problem}"
       raise Jekyll::Errors::FatalException, message if Jekyll.env == "production"
 
       Jekyll.logger.warn("Math:", message)

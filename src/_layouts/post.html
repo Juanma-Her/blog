@@ -22,6 +22,7 @@ layout: base
 
 {%- assign related = lang | posts_for | where_exp: "post", "post.tags.first == tag" | where_exp: "post", "post.ref != page.ref" | slice: 0, site.more_on_count -%}
 {%- assign forge = site.forges.github -%}
+{%- assign source_dir = site.source | split: "/" | last -%} {%- comment -%} "src" {%- endcomment -%}
 
 <article class="post container container--post">
   <header class="post-header">
@@ -61,7 +62,7 @@ layout: base
 
   <div class="post-edit">
     <span>{{ "post.spotted_mistake" | t: lang }}</span>
-    <a href="https://github.com/{{ forge.user }}/{{ forge.repo }}/edit/{{ forge.branch }}/{{ page.path }}">{% include icon-pencil.html %}{{ "post.edit_github" | t: lang }}</a>
+    <a href="https://github.com/{{ forge.user }}/{{ forge.repo }}/edit/{{ forge.branch }}/{{ source_dir }}/{{ page.path }}">{% include icon-pencil.html %}{{ "post.edit_github" | t: lang }}</a>
   </div>
 
   {%- if previous or next %}
