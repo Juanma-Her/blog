@@ -71,9 +71,6 @@
     "light_text": "#504945",
     "light_bar": "#427b58"
   },
-  "interpreters": {
-    "hidden": true
-  },
   "mpi": {
     "hidden": true
   },

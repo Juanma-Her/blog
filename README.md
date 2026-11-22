@@ -28,11 +28,11 @@ Create `src/_posts/en/YYYY-MM-DD-slug.md` for English or `src/_posts/es/YYYY-MM-
 
 ```yaml
 ---
-title: "Writing a tiny Lisp interpreter in Rust"
-date: 2026-11-14
-description: "Tokenize, parse, evaluate: a working interpreter in about 200 lines."
-tags: [rust, interpreters]
-ref: tiny-lisp
+title: "How I (vibe)coded this blog"
+date: 2026-11-22
+description: "A bilingual, static, Gruvbox-themed blog: the decisions behind it, and what it was like building it with an AI agent."
+tags: [tooling]
+ref: building-this-blog
 ---
 ```
 
