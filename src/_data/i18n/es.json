@@ -166,5 +166,31 @@
     "other_heading": "¿Buscabas algo en español?",
     "other_text": "Esta página no existe. Probá desde el {link}.",
     "other_link": "inicio en español"
+  },
+  "pages": {
+    "home": {
+      "title": "~/strinix",
+      "description": "Un blog de desarrollo sobre Rust, C/C++, herramientas, homelabs y HPC."
+    },
+    "archive": {
+      "title": "Todos los posts",
+      "description": "Todos los posts de ~/strinix, por año, con búsqueda y filtros por tema."
+    },
+    "projects": {
+      "title": "Proyectos",
+      "description": "Cosas que armé, rompí y a veces terminé: proyectos personales, trabajo de HPC y hackathons."
+    },
+    "about": {
+      "title": "Sobre mí",
+      "description": "Quién escribe ~/strinix: experiencia, competencias y cómo contactarme."
+    },
+    "feed": {
+      "title": "Feed RSS",
+      "description": "Suscribite a ~/strinix desde tu lector de feeds: sin cuenta, sin correo, sin rastreo."
+    },
+    "not_found": {
+      "title": "Página no encontrada",
+      "description": "La página que buscás no existe, o se movió."
+    }
   }
 }

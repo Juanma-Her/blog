@@ -2,6 +2,7 @@
 
 # Languages (Design document 2.2, JSON contracts 7.2).
 #
+# - page.title, page.description: for pages, from the string files (PageTitles).
 # - page.translations: { "en" => url, "es" => url } for every page or post
 #   with a `ref`. Pages that share a ref are translations of each other.
 # - t:             {{ "post.read_time" | t: page.lang, n: 12 }}
@@ -24,6 +25,21 @@ module Strinix
       documents.each do |doc|
         ref = doc.data["ref"]
         doc.data["translations"] = by_ref[ref] if ref
+      end
+    end
+  end
+
+  # Title and description of pages (not posts) from the string files, by ref:
+  # pages.<ref>.title and pages.<ref>.description, so the tab title and the
+  # meta description are translated (jekyll-seo-tag reads page.title).
+  class PageTitles < Jekyll::Generator
+    def generate(site)
+      site.pages.each do |page|
+        strings = site.data.dig("i18n", page.data["lang"], "pages", page.data["ref"].to_s)
+        next unless strings
+
+        page.data["title"] ||= strings["title"]
+        page.data["description"] ||= strings["description"]
       end
     end
   end

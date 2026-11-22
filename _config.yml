@@ -6,7 +6,6 @@
 source: src
 
 title: "~/strinix"
-description: "A dev blog about Rust, C/C++, tooling, homelabs and HPC."
 url: "https://strinix.com.ar"
 baseurl: ""
 author:
