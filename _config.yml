@@ -55,7 +55,4 @@ defaults:
   - scope: { path: "pages/es" }
     values: { lang: "es" }
   - scope: { path: "" }
-    values:
-      lang: "en"
-      # Link preview image (og:image) for every page.
-      image: { path: "/assets/img/social.png", width: 1200, height: 630 }
+    values: { lang: "en" }
