@@ -145,7 +145,10 @@ def check_feeds
   feeds.sort.filter_map do |path|
     document = REXML::Document.new(File.read(path))
     entries = REXML::XPath.match(document, "//*[local-name()='entry']").size
-    "#{relative(path)}: feed has no entries" if entries.zero?
+    # A feed lists only its own language, so it is empty until that language has a post.
+    lang = relative(path).split("/")[1].then { |dir| LANGUAGES.include?(dir) ? dir : LANGUAGES.first }
+    has_posts = Dir[File.join(SITE, "_posts", lang, "*.md")].any?
+    "#{relative(path)}: feed has no entries" if entries.zero? && has_posts
   rescue REXML::ParseException => e
     "#{relative(path)}: not valid XML (#{e.message.lines.first.strip})"
   end
