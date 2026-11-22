@@ -98,12 +98,16 @@
     "types": {
       "tool": "Tool",
       "hpc": "HPC",
-      "hackathon": "Hackathon"
+      "hackathon": "Hackathon",
+      "os": "OS",
+      "graphics": "Graphics"
     },
     "type_filters": {
       "tool": "Tools",
       "hpc": "HPC",
-      "hackathon": "Hackathons"
+      "hackathon": "Hackathons",
+      "os": "Operating systems",
+      "graphics": "Graphics"
     },
     "status": {
       "active": "Active",

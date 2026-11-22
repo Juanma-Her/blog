@@ -2,75 +2,73 @@
   "schema_version": 1,
   "projects": [
     {
-      "id": "tiny-lisp",
+      "id": "strinix",
       "featured": true,
-      "type": "tool",
+      "type": "os",
       "status": "active",
-      "title": "tiny-lisp",
+      "title": "strinix",
       "description": {
-        "en": "A small Lisp interpreter in Rust, the project behind the Building a Lisp posts.",
-        "es": "Un intérprete de Lisp pequeño en Rust, el proyecto detrás de los posts sobre Lisp."
+        "en": "A small x86 hobby OS.",
+        "es": "Un pequeño sistema operativo para arquitecturas x86."
       },
       "stack": [
-        "Rust"
+        "C"
       ],
       "links": {
-        "codeberg": "https://codeberg.org/Strinix/tiny-lisp",
-        "github": "https://github.com/Juanma-Her/tiny-lisp",
-        "writeup": "tiny-lisp"
+        "codeberg": "https://codeberg.org/Strinix/strinix"
       },
       "terminal": {
-        "command": "cargo run --release",
-        "output": "λ> (fact 10)\n3628800"
+        "command": "make run",
+        "output": "qemu-system-i386 -kernel strinix.bin\nstrinix 0.1 booting...\n[ ok ] GDT loaded\n[ ok ] IDT and PIC ready\n[ ok ] paging enabled\nwelcome to strinix"
       },
       "year": 2026
     },
     {
-      "id": "cluster-tools",
+      "id": "rasterizer",
       "featured": false,
-      "type": "hpc",
+      "type": "graphics",
       "status": "active",
-      "title": "cluster-tools",
+      "title": "rasterizer",
       "description": {
-        "en": "Scripts the team uses to build and tune the competition cluster.",
-        "es": "Scripts que el equipo usa para armar y ajustar el clúster de la competencia."
+        "en": "Small implementation of a rasterizer using raylib to learn C++.",
+        "es": "Pequeña implementación de un rasterizador usando raylib para aprender C++."
       },
       "stack": [
-        "Bash",
-        "Slurm",
-        "MPI"
+        "C++",
+        "raylib"
       ],
       "links": {
-        "codeberg": "https://codeberg.org/Strinix/cluster-tools",
-        "writeup": "slurm-mpi-profiling"
+        "codeberg": "https://codeberg.org/Strinix/rasterizer"
       },
       "year": 2026
     },
     {
-      "id": "hackathon-demo",
+      "id": "terra-analog-index",
       "featured": false,
       "type": "hackathon",
       "status": "finished",
-      "title": "Hackathon demo",
+      "title": "Terra Analog Index",
       "description": {
-        "en": "What we built in a weekend, and what happened.",
-        "es": "Lo que armamos en un fin de semana, y cómo nos fue."
+        "en": "Tool to look for terrestrial analogs of the Moon and Mars.",
+        "es": "Herramienta para buscar análogos terrestres de la Luna y Marte."
       },
       "stack": [
         "Python",
-        "FastAPI"
+        "Streamlit",
+        "GeoPandas",
+        "rasterio"
       ],
       "links": {
-        "github": "https://github.com/Juanma-Her/hackathon-demo"
+        "github": "https://github.com/NASA-spaceapps-sigsegv/terra-analog-index"
       },
-      "year": 2025
+      "year": 2026
     },
     {
       "id": "blog",
       "featured": false,
       "type": "tool",
       "status": "active",
-      "title": "This blog",
+      "title": "Blog",
       "description": {
         "en": "The site you're reading: a Jekyll theme in Gruvbox, hosted on GitHub Pages.",
         "es": "El sitio que estás leyendo: un tema de Jekyll en Gruvbox, en GitHub Pages."
@@ -85,25 +83,6 @@
         "github": "https://github.com/Juanma-Her/blog"
       },
       "year": 2026
-    },
-    {
-      "id": "dotfiles",
-      "featured": false,
-      "type": "tool",
-      "status": "maintained",
-      "title": "dotfiles",
-      "description": {
-        "en": "Neovim, shell and window manager configuration.",
-        "es": "Configuración de Neovim, la terminal y el gestor de ventanas."
-      },
-      "stack": [
-        "Lua",
-        "Shell"
-      ],
-      "links": {
-        "codeberg": "https://codeberg.org/Strinix/dotfiles"
-      },
-      "year": 2024
     }
   ]
 }

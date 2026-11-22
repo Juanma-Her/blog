@@ -39,7 +39,9 @@
             "enum": [
               "tool",
               "hpc",
-              "hackathon"
+              "hackathon",
+              "os",
+              "graphics"
             ]
           },
           "status": {
