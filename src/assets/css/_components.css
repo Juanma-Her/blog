@@ -16,6 +16,16 @@
 
 .icon-button:hover { color: var(--accent); }
 
+/* Theme toggle: needs JavaScript; shows the sun in dark and the moon in light. */
+html:not(.js) #theme-toggle { display: none; }
+#theme-toggle .icon-moon { display: none; }
+:root[data-theme="light"] #theme-toggle .icon-sun { display: none; }
+:root[data-theme="light"] #theme-toggle .icon-moon { display: block; }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) #theme-toggle .icon-sun { display: none; }
+  :root:not([data-theme="dark"]) #theme-toggle .icon-moon { display: block; }
+}
+
 /* Skip link: hidden until focused (Design document 12). */
 
 .skip-link {

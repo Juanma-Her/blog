@@ -17,9 +17,6 @@ function updateButton() {
   const label = dark ? button.dataset.labelToLight : button.dataset.labelToDark;
   button.setAttribute("aria-label", label);
   button.title = label;
-  // toggleAttribute, not .hidden: SVG elements have no hidden property.
-  button.querySelector(".icon-sun").toggleAttribute("hidden", !dark);
-  button.querySelector(".icon-moon").toggleAttribute("hidden", dark);
 }
 
 function announce() {
@@ -51,4 +48,3 @@ systemDark.addEventListener("change", () => {
 });
 
 updateButton();
-button.hidden = false;
