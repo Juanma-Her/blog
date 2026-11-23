@@ -37,9 +37,8 @@
 .site-header {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: center;
-  gap: 8px 32px;
+  gap: 8px 28px;
   padding-block: 16px;
 }
 
@@ -51,6 +50,7 @@
   letter-spacing: -0.01em;
 }
 
+.logo { margin-right: auto; }
 .logo-prefix { color: var(--accent); }
 
 .site-nav {
@@ -73,6 +73,43 @@
 }
 
 .site-nav .nav-rss[aria-current] { border-color: var(--accent); }
+.nav-rss-icon { display: none; }
+
+.site-tools { display: flex; align-items: center; gap: 28px; }
+
+/* Phones: logo and buttons on one row, the links on a second row with the
+   current page underlined. The buttons stay at the right edge, so the
+   language menu (aligned to its button's right edge) stays on screen. */
+@media (max-width: 640px) {
+  .site-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4px 0;
+    padding-block: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .site-tools { grid-row: 1; grid-column: 2; gap: 8px; }
+  .site-nav { grid-row: 2; grid-column: 1 / -1; gap: 0 24px; }
+  .site-nav a,
+  .site-nav .nav-rss {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+  }
+  .site-nav a[aria-current] { border-bottom-color: var(--accent); }
+  .site-nav .nav-rss { margin-left: auto; }
+  .site-nav .nav-rss:not([aria-current]) { color: var(--text-2); }
+  .nav-rss-icon { display: block; }
+}
+
+@media (max-width: 360px) {
+  .site-nav { gap: 0 16px; }
+}
 
 /* Footer (BLG-14) */
 
