@@ -200,9 +200,11 @@ html:not(.js) #theme-toggle { display: none; }
   gap: 8px;
   min-height: 44px;
   padding: 12px 20px;
+  border: 0; /* links have none; <button> would get the browser's grey border */
   border-radius: 8px;
   font-weight: 500;
   line-height: 1.2;
+  cursor: pointer;
 }
 
 .button--accent { background: var(--accent); color: var(--on-accent); font-weight: 600; }
