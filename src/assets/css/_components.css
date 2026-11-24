@@ -826,18 +826,19 @@ html:not(.js) #theme-toggle { display: none; }
 /* Email card (popover, designs A and D). The browser centres it in the window;
    on phones it becomes a bottom sheet. */
 .email-card {
-  width: min(420px, calc(100vw - 32px));
-  padding: 32px;
+  width: max-content; /* as wide as its longest line, which never wraps on wide screens */
+  max-width: calc(100vw - 32px);
+  padding: 24px 28px;
   border: 1px solid var(--border-strong);
   border-radius: 14px;
   background: var(--card);
   color: var(--text);
 }
 .email-card::backdrop { background: rgb(0 0 0 / 0.45); }
-.email-card-title { font-family: var(--font-heading); font-size: 22px; font-weight: 700; }
+.email-card-title { font-family: var(--font-heading); font-size: 20px; font-weight: 700; }
 .email-card-code {
   position: relative;
-  margin-top: 20px;
+  margin-top: 16px;
   border: 1px solid var(--border-strong);
   border-radius: 10px;
   background: var(--code-bg);
@@ -869,9 +870,12 @@ html:not(.js) #theme-toggle { display: none; }
 .email-card-copy .icon-check,
 .email-card-copy.is-copied .icon-copy { display: none; }
 .email-card-copy.is-copied .icon-check { display: block; color: var(--accent); }
-.email-card-hint { margin-top: 12px; color: var(--text-2); font-size: 14px; text-align: center; }
+.email-card-hint { margin-top: 12px; color: var(--text-2); font-size: 13px; text-align: center; }
 .email-card-note { margin-top: 4px; }
-.email-card-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
+.email-card-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 24px; }
+@media (min-width: 641px) {
+  .email-card-hint { white-space: nowrap; }
+}
 
 @media (max-width: 640px) {
   .email-card {
