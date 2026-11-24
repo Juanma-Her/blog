@@ -786,16 +786,20 @@ html:not(.js) #theme-toggle { display: none; }
 .about-list { margin: 0; padding: 0; list-style: none; }
 .about-list li { border-bottom: 1px solid var(--border); }
 .about-list li:first-child { border-top: 1px solid var(--border); }
-.about-list > li > a, .competitions li { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 16px; padding-block: 14px; }
+.about-list > li > a, .competition-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 16px; padding-block: 14px; }
 .about-list-title { font-weight: 500; }
 .about-list-meta { color: var(--meta); font: 13px var(--font-mono); }
 
-.competitions li { align-items: center; gap: 6px 14px; }
+.competition-row { align-items: center; gap: 6px 14px; margin-inline: -12px; padding-inline: 12px; border-radius: 8px; }
+a.competition-row:hover { background: var(--panel); }
+.link-arrow { width: 1.25em; flex: none; text-align: right; color: var(--meta); }
+a:hover .link-arrow { color: var(--accent); }
 .competitions li:first-child { border-top: 0; }
 .competitions .about-list-title { flex: 1 1 260px; }
 
 .team-card {
   display: flex;
+  position: relative;
   flex-wrap: wrap;
   align-items: center;
   gap: 16px 20px;
@@ -818,6 +822,9 @@ html:not(.js) #theme-toggle { display: none; }
 .team-icon--image { object-fit: cover; background: none; }
 
 .team-card > div { flex: 1 1 300px; display: flex; flex-direction: column; gap: 2px; }
+a.team-card:hover { border-color: var(--border-strong); }
+a.team-card { padding-right: 52px; } /* room for the arrow, which never wraps below */
+.team-card .link-arrow { position: absolute; top: 20px; right: 20px; font-size: 20px; }
 .team-name { font-family: var(--font-heading); font-size: 20px; font-weight: 700; }
 .team-summary { color: var(--text-2); font-size: 15px; }
 
