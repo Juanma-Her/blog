@@ -13,6 +13,9 @@ img, svg { display: block; max-width: 100%; height: auto; }
 
 button, input { font: inherit; color: inherit; }
 
+/* No blue flash on tap in mobile browsers; focus styles still show for keyboards. */
+a, button, summary { -webkit-tap-highlight-color: transparent; }
+
 body {
   min-height: 100vh;
   background: var(--bg);
