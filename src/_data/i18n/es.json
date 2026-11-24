@@ -204,5 +204,8 @@
       "title": "Página no encontrada",
       "description": "La página que buscás no existe, o se movió."
     }
+  },
+  "links": {
+    "new_tab": "(se abre en una pestaña nueva)"
   }
 }
