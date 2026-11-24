@@ -791,7 +791,9 @@ html:not(.js) #theme-toggle { display: none; }
 .about-list-meta { color: var(--meta); font: 13px var(--font-mono); }
 
 /* The body wraps; the arrow is its own column, centred on the right. */
-.competition-row { display: flex; align-items: center; gap: 14px; margin-inline: -12px; padding-inline: 12px; border-radius: 8px; }
+/* .competitions raises it over ".about-list > li > a", which would add a second
+   padding and let the arrow wrap. */
+.competitions .competition-row { display: flex; flex-wrap: nowrap; align-items: center; gap: 14px; margin-inline: -12px; padding: 0 12px; border-radius: 8px; }
 .competition-row-body { flex: 1; min-width: 0; align-items: center; gap: 6px 14px; }
 @media (max-width: 640px) {
   /* Pill and title share the first line, the title taking all the room left;
