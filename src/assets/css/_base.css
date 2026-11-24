@@ -86,7 +86,7 @@ code, kbd, pre { font-family: var(--font-mono); font-size: 0.9em; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *, *::before, *::after, *::backdrop {
     transition: none !important;
     animation: none !important;
   }
