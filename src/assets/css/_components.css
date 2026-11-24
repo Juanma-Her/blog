@@ -786,11 +786,13 @@ html:not(.js) #theme-toggle { display: none; }
 .about-list { margin: 0; padding: 0; list-style: none; }
 .about-list li { border-bottom: 1px solid var(--border); }
 .about-list li:first-child { border-top: 1px solid var(--border); }
-.about-list > li > a, .competition-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 16px; padding-block: 14px; }
+.about-list > li > a, .competition-row-body { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 16px; padding-block: 14px; }
 .about-list-title { font-weight: 500; }
 .about-list-meta { color: var(--meta); font: 13px var(--font-mono); }
 
-.competition-row { align-items: center; gap: 6px 14px; margin-inline: -12px; padding-inline: 12px; border-radius: 8px; }
+/* The body wraps; the arrow is its own column, centred on the right. */
+.competition-row { display: flex; align-items: center; gap: 14px; margin-inline: -12px; padding-inline: 12px; border-radius: 8px; }
+.competition-row-body { flex: 1; min-width: 0; align-items: center; gap: 6px 14px; }
 a.competition-row:hover { background: var(--panel); }
 .link-arrow { width: 1.25em; flex: none; text-align: right; color: var(--meta); }
 a:hover .link-arrow { color: var(--accent); }

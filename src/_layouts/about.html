@@ -95,9 +95,11 @@ layout: base
       {%- for entry in about.competitions.entries %}
       <li>
         {%- if entry.url %}<a class="competition-row" href="{{ entry.url }}">{% else %}<div class="competition-row">{% endif %}
-        <span class="type-pill type--{{ entry.kind }}">{{ strings.kinds[entry.kind] }}</span>
-        <span class="about-list-title">{{ entry.event }} · {{ entry.date | slice: 0, 4 }}</span>
-        <span class="about-list-meta">{% if entry.result %}{{ entry.result | localize: lang }}{% else %}{{ entry.role | localize: lang }}{% endif %}</span>
+        <span class="competition-row-body">
+          <span class="type-pill type--{{ entry.kind }}">{{ strings.kinds[entry.kind] }}</span>
+          <span class="about-list-title">{{ entry.event }} · {{ entry.date | slice: 0, 4 }}</span>
+          <span class="about-list-meta">{% if entry.result %}{{ entry.result | localize: lang }}{% else %}{{ entry.role | localize: lang }}{% endif %}</span>
+        </span>
         <span class="link-arrow" aria-hidden="true">{% if entry.url %}↗{% endif %}</span>
         {%- if entry.url %}</a>{% else %}</div>{% endif %}
       </li>
