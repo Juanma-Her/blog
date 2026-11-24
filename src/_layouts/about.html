@@ -31,7 +31,7 @@ layout: base
           {%- capture arrow %}<span aria-hidden="true">↗</span>{% endcapture %}
           <a href="https://codeberg.org/{{ site.forges.codeberg.user }}">Codeberg{{ arrow }}</a>
           <a href="https://github.com/{{ site.forges.github.user }}">GitHub{{ arrow }}</a>
-          <a href="mailto:{{ site.email }}">{{ strings.email }}{{ arrow }}</a>
+          <button type="button" popovertarget="email-card">{{ strings.email }}{{ arrow }}</button>
           <a href="{{ prefix }}/feed/">{{ strings.rss_feed }}{{ arrow }}</a>
         </nav>
       </div>
@@ -94,7 +94,7 @@ layout: base
       </li>
       {%- endfor %}
     </ul>
-    <p class="interested">{{ strings.interested_text }} <a href="mailto:{{ site.email }}?subject={{ subject }}">{{ strings.interested_link }} →</a></p>
+    <p class="interested">{{ strings.interested_text }} <button class="link-button" type="button" popovertarget="email-card-team">{{ strings.interested_link }} →</button></p>
   </section>
 
   <section aria-labelledby="skills-heading">
@@ -115,3 +115,6 @@ layout: base
     <a class="button button--accent" href="mailto:{{ site.email }}">{{ site.email }}</a>
   </section>
 </div>
+
+{% include email-card.html id="email-card" %}
+{% include email-card.html id="email-card-team" subject=subject %}

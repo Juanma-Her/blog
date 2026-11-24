@@ -128,6 +128,12 @@
     "eyebrow": "Sobre mí",
     "links_label": "En otros lados",
     "email": "Correo",
+    "email_card": {
+      "title": "Correo",
+      "hint": "¿No tenés una app de correo? Copiá la dirección.",
+      "open": "Abrir en la app de correo",
+      "close": "Cerrar"
+    },
     "rss_feed": "Feed RSS",
     "details": {
       "based": "vive en",

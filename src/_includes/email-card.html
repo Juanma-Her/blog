@@ -1,0 +1,17 @@
+{%- comment -%}
+  Email card: a popover opened by a button with popovertarget="{{ include.id }}".
+  No JavaScript: the browser opens it, and closes it on Escape or a click
+  outside. It shows the address for readers without a mail app, where
+  mailto: does nothing. include.subject (optional, URL-encoded) prefills the
+  mail subject.
+{%- endcomment -%}
+{%- assign card = site.data.i18n[page.lang].about.email_card -%}
+<div id="{{ include.id }}" class="email-card" popover role="dialog" aria-labelledby="{{ include.id }}-title">
+  <p id="{{ include.id }}-title" class="email-card-title">{{ card.title }}</p>
+  <p class="email-card-address">{{ site.email }}</p>
+  <p class="email-card-hint">{{ card.hint }}</p>
+  <div class="email-card-actions">
+    <a class="button button--accent" href="mailto:{{ site.email }}{% if include.subject %}?subject={{ include.subject }}{% endif %}">{{ card.open }}</a>
+    <button class="button button--outline" type="button" popovertarget="{{ include.id }}" popovertargetaction="hide">{{ card.close }}</button>
+  </div>
+</div>

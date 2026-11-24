@@ -128,6 +128,12 @@
     "eyebrow": "About",
     "links_label": "Elsewhere",
     "email": "Email",
+    "email_card": {
+      "title": "Email",
+      "hint": "No mail app on this device? Copy the address.",
+      "open": "Open in mail app",
+      "close": "Close"
+    },
     "rss_feed": "RSS feed",
     "details": {
       "based": "based",

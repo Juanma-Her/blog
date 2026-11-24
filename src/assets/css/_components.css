@@ -731,6 +731,17 @@ html:not(.js) #theme-toggle { display: none; }
 .profile-links { display: flex; flex-direction: column; padding-top: 8px; border-top: 1px solid light-dark(var(--border), var(--border-strong)); }
 .profile-links a { display: flex; justify-content: space-between; padding-block: 10px; font-weight: 500; }
 .profile-links span { color: var(--meta); }
+.profile-links button {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border: 0;
+  background: none;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+.profile-links button:hover, .link-button:hover { color: var(--accent); }
 
 .about-main { flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 56px; }
 .about section.about-intro { gap: 18px; }
@@ -809,7 +820,23 @@ html:not(.js) #theme-toggle { display: none; }
 .team-summary { color: var(--text-2); font-size: 15px; }
 
 .interested { color: var(--text-2); font-size: 15px; }
-.interested a { padding-block: 10px; color: var(--accent); font-weight: 500; }
+.interested a, .interested .link-button { padding-block: 10px; color: var(--accent); font-weight: 500; }
+.link-button { padding: 0; border: 0; background: none; cursor: pointer; }
+
+/* Email card (popover). The browser centres it in the window. */
+.email-card {
+  width: min(360px, calc(100vw - 32px));
+  padding: 24px;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--text);
+}
+.email-card::backdrop { background: rgb(0 0 0 / 0.4); }
+.email-card-title { font-family: var(--font-heading); font-size: 20px; font-weight: 700; }
+.email-card-address { margin-top: 12px; font: 500 17px var(--font-mono); overflow-wrap: anywhere; user-select: all; }
+.email-card-hint { margin-top: 4px; color: var(--text-2); font-size: 14px; }
+.email-card-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
 
 .skills { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; font: 14px var(--font-mono); }
 
