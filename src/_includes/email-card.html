@@ -21,6 +21,7 @@
     <span class="visually-hidden" aria-live="polite" data-copy-status></span>
   </div>
   <p class="email-card-hint">{{ card.hint }}</p>
+  <p class="email-card-hint email-card-note">{{ card.reply_note }}</p>
   <div class="email-card-actions">
     <a class="button button--accent" href="mailto:{{ site.email }}{% if include.subject %}?subject={{ include.subject }}{% endif %}">{{ card.open }}</a>
     <button class="button button--outline" type="button" popovertarget="{{ include.id }}" popovertargetaction="hide">{{ card.close }}</button>

@@ -131,6 +131,7 @@
     "email_card": {
       "title": "Email",
       "hint": "No mail app on this device? Copy the address.",
+      "reply_note": "Heads up: my reply will come from a different address.",
       "open": "Open in mail app",
       "close": "Close",
       "copy": "Copy the address"

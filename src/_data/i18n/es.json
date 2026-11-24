@@ -131,6 +131,7 @@
     "email_card": {
       "title": "Correo",
       "hint": "¿No tenés una app de correo? Copiá la dirección.",
+      "reply_note": "Ojo: mi respuesta va a llegar desde otra dirección.",
       "open": "Abrir en la app de correo",
       "close": "Cerrar",
       "copy": "Copiar la dirección"

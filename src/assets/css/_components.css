@@ -870,6 +870,7 @@ html:not(.js) #theme-toggle { display: none; }
 .email-card-copy.is-copied .icon-copy { display: none; }
 .email-card-copy.is-copied .icon-check { display: block; color: var(--accent); }
 .email-card-hint { margin-top: 12px; color: var(--text-2); font-size: 14px; text-align: center; }
+.email-card-note { margin-top: 4px; }
 .email-card-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
 
 @media (max-width: 640px) {
