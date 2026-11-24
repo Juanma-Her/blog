@@ -823,20 +823,68 @@ html:not(.js) #theme-toggle { display: none; }
 .interested a, .interested .link-button { padding-block: 10px; color: var(--accent); font-weight: 500; }
 .link-button { padding: 0; border: 0; background: none; cursor: pointer; }
 
-/* Email card (popover). The browser centres it in the window. */
+/* Email card (popover, designs A and D). The browser centres it in the window;
+   on phones it becomes a bottom sheet. */
 .email-card {
-  width: min(360px, calc(100vw - 32px));
-  padding: 24px;
+  width: min(420px, calc(100vw - 32px));
+  padding: 32px;
   border: 1px solid var(--border-strong);
-  border-radius: 12px;
+  border-radius: 14px;
   background: var(--card);
   color: var(--text);
 }
-.email-card::backdrop { background: rgb(0 0 0 / 0.4); }
-.email-card-title { font-family: var(--font-heading); font-size: 20px; font-weight: 700; }
-.email-card-address { margin-top: 12px; font: 500 17px var(--font-mono); overflow-wrap: anywhere; user-select: all; }
-.email-card-hint { margin-top: 4px; color: var(--text-2); font-size: 14px; }
-.email-card-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.email-card::backdrop { background: rgb(0 0 0 / 0.45); }
+.email-card-title { font-family: var(--font-heading); font-size: 22px; font-weight: 700; }
+.email-card-code {
+  position: relative;
+  margin-top: 20px;
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  background: var(--code-bg);
+}
+.email-card-address {
+  padding: 16px 48px;
+  text-align: center;
+  font: 500 clamp(13px, 4vw, 15px) var(--font-mono);
+  user-select: all;
+}
+.email-card-copy {
+  position: absolute;
+  top: 50%;
+  right: 2px;
+  translate: 0 -50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--meta);
+  cursor: pointer;
+}
+.email-card-copy:hover { color: var(--accent); }
+.email-card-copy .icon-check,
+.email-card-copy.is-copied .icon-copy { display: none; }
+.email-card-copy.is-copied .icon-check { display: block; color: var(--accent); }
+.email-card-hint { margin-top: 12px; color: var(--text-2); font-size: 14px; text-align: center; }
+.email-card-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
+
+@media (max-width: 640px) {
+  .email-card {
+    inset: auto 0 0;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 28px 20px calc(28px + env(safe-area-inset-bottom, 0px));
+    border-width: 1px 0 0;
+    border-radius: 20px 20px 0 0;
+  }
+  .email-card-actions { flex-direction: column; align-items: stretch; margin-top: 24px; }
+  .email-card-actions .button { justify-content: center; min-height: 48px; }
+}
 
 .skills { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; font: 14px var(--font-mono); }
 

@@ -132,7 +132,8 @@
       "title": "Email",
       "hint": "No mail app on this device? Copy the address.",
       "open": "Open in mail app",
-      "close": "Close"
+      "close": "Close",
+      "copy": "Copy the address"
     },
     "rss_feed": "RSS feed",
     "details": {

@@ -1,5 +1,6 @@
 // Copy buttons (JSON contracts 6.3): on code figures they copy the code; with
-// data-copy-target they copy that element's value (the feed address). The
+// data-copy-target they copy that element's value or text (the feed address,
+// the email card). The
 // buttons are hidden in the HTML and shown here, so readers without
 // JavaScript never see a button that does nothing.
 
@@ -21,10 +22,12 @@ for (const button of document.querySelectorAll("[data-copy]")) {
       return; // Clipboard blocked: leave the label as it is.
     }
     label.textContent = status.textContent = button.dataset.copied;
+    button.classList.add("is-copied");
     clearTimeout(timer);
     timer = setTimeout(() => {
       label.textContent = copyText;
       status.textContent = "";
+      button.classList.remove("is-copied");
     }, 2000);
   });
 

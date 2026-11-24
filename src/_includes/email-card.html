@@ -1,14 +1,25 @@
 {%- comment -%}
   Email card: a popover opened by a button with popovertarget="{{ include.id }}".
-  No JavaScript: the browser opens it, and closes it on Escape or a click
-  outside. It shows the address for readers without a mail app, where
-  mailto: does nothing. include.subject (optional, URL-encoded) prefills the
-  mail subject.
+  The browser opens it and closes it on Escape or a click outside, without
+  JavaScript. It shows the address for readers without a mail app, where
+  mailto: does nothing. A centred card on wide screens, a bottom sheet on phones.
+  include.subject (optional, URL-encoded) prefills the mail subject.
+
+  The address breaks only before "@" if it ever has to (<wbr>). The copy button
+  needs copy.js, so it stays hidden without JavaScript.
 {%- endcomment -%}
 {%- assign card = site.data.i18n[page.lang].about.email_card -%}
+{%- assign user = site.email | split: "@" | first -%}
+{%- assign domain = site.email | split: "@" | last -%}
 <div id="{{ include.id }}" class="email-card" popover role="dialog" aria-labelledby="{{ include.id }}-title">
   <p id="{{ include.id }}-title" class="email-card-title">{{ card.title }}</p>
-  <p class="email-card-address">{{ site.email }}</p>
+  <div class="email-card-code">
+    <p id="{{ include.id }}-address" class="email-card-address">{{ user }}<wbr>@{{ domain }}</p>
+    <button class="email-card-copy" type="button" data-copy data-copy-target="{{ include.id }}-address" data-copied="{{ 'post.copied' | t: page.lang }}" title="{{ card.copy }}" hidden>
+      {% include icon-copy.html %}{% include icon-check.html %}<span class="visually-hidden" data-copy-label>{{ card.copy }}</span>
+    </button>
+    <span class="visually-hidden" aria-live="polite" data-copy-status></span>
+  </div>
   <p class="email-card-hint">{{ card.hint }}</p>
   <div class="email-card-actions">
     <a class="button button--accent" href="mailto:{{ site.email }}{% if include.subject %}?subject={{ include.subject }}{% endif %}">{{ card.open }}</a>
