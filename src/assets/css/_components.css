@@ -313,6 +313,10 @@ html:not(.js) #theme-toggle { display: none; }
 .hero-sections a { display: flex; gap: 14px; padding-block: 6px; font-size: 15px; }
 .hero-sections-n { flex: none; width: 22px; color: var(--meta); font: 13px/1.7 var(--font-mono); }
 .hero-sections .hero-sections-more { color: var(--meta); padding-left: 36px; }
+/* Once it drops under the text, it spans the card's full width. */
+@media (max-width: 900px) {
+  .hero-sections { flex-basis: 100%; }
+}
 
 .hero-code pre {
   overflow-x: auto;
