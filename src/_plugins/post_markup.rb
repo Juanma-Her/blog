@@ -16,3 +16,18 @@ Jekyll::Hooks.register :posts, :post_convert do |post|
       %(<blockquote class="note">\n<p><strong class="note-label">#{strings["note"]}</strong> )
     end
 end
+
+# {{ post.content | sections }}: the post's h2 headings as [{ "id", "title" }],
+# for the "In this post" list on the home page when a post has no hero_code.
+module Strinix
+  module SectionsFilter
+    def sections(html)
+      html.to_s.scan(%r{<h2 id="([^"]+)">(.*?)</h2>}m).map do |id, inner|
+        title = inner.sub(%r{<a class="heading-anchor"[^>]*>#</a>}, "").gsub(/<[^>]+>/, "").strip
+        { "id" => id, "title" => title }
+      end
+    end
+  end
+end
+
+Liquid::Template.register_filter(Strinix::SectionsFilter)

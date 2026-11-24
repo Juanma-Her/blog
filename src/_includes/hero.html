@@ -17,5 +17,24 @@
   {%- capture fenced %}```{{ post.hero_code.lang }}
 {{ post.hero_code.code }}```{% endcapture %}
   <div class="hero-code">{{ fenced | markdownify }}</div>
+  {%- else %}
+  {%- comment %} No hero code: list the post's sections instead (canvas "Latest post without hero code", 3). {% endcomment %}
+  {%- assign sections = post.content | sections %}
+  {%- if sections.size > 0 %}
+  {%- assign shown = 6 %}
+  {%- assign rest = sections.size | minus: shown %}
+  <nav class="hero-sections" aria-labelledby="hero-sections-label">
+    <p id="hero-sections-label" class="hero-sections-label">{{ "home.in_this_post" | t: page.lang }}</p>
+    <ol lang="{{ post.lang }}">
+      {%- for section in sections limit: shown %}
+      <li><a href="{{ post.url }}#{{ section.id }}"><span class="hero-sections-n" aria-hidden="true">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</span>{{ section.title }}</a></li>
+      {%- endfor %}
+    </ol>
+    {%- if rest > 0 %}
+    {%- if rest == 1 %}{% assign more_key = "home.more_sections_one" %}{% else %}{% assign more_key = "home.more_sections" %}{% endif %}
+    <a class="hero-sections-more" href="{{ post.url }}">{{ more_key | t: page.lang, n: rest }} →</a>
+    {%- endif %}
+  </nav>
+  {%- endif %}
   {%- endif %}
 </article>

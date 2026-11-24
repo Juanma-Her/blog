@@ -83,7 +83,10 @@
     "browse_archive": "Browse the archive",
     "follow_heading": "Follow along",
     "follow_text": "A new post every few weeks. No tracking, just a feed.",
-    "subscribe": "Subscribe via RSS"
+    "subscribe": "Subscribe via RSS",
+    "in_this_post": "In this post",
+    "more_sections": "+ {n} more sections",
+    "more_sections_one": "+ 1 more section"
   },
   "language_names": {
     "en": "English",

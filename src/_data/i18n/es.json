@@ -83,7 +83,10 @@
     "browse_archive": "Ver el archivo",
     "follow_heading": "Seguí el blog",
     "follow_text": "Un post nuevo cada algunas semanas. Sin rastreo, solo un feed.",
-    "subscribe": "Suscribite por RSS"
+    "subscribe": "Suscribite por RSS",
+    "in_this_post": "En este post",
+    "more_sections": "+ {n} secciones más",
+    "more_sections_one": "+ 1 sección más"
   },
   "language_names": {
     "en": "inglés",
