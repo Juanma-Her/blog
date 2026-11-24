@@ -317,6 +317,11 @@ html:not(.js) #theme-toggle { display: none; }
 @media (max-width: 900px) {
   .hero-sections { flex-basis: 100%; }
 }
+/* Phones: the latest post is text only. The code and the sections are
+   decoration here, and both are one tap away in the post. */
+@media (max-width: 640px) {
+  .hero-code, .hero-sections { display: none; }
+}
 
 .hero-code pre {
   overflow-x: auto;
