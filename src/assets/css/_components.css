@@ -796,7 +796,7 @@ html:not(.js) #theme-toggle { display: none; }
 @media (max-width: 640px) {
   /* Pill and title share the first line, the title taking all the room left;
      the role or result goes on its own line underneath. */
-  .competitions .about-list-title { flex: 1 1 0; min-width: 0; }
+  .competitions .competition-row-body .about-list-title { flex: 1 1 0; min-width: 0; }
   .competition-row-body .about-list-meta { flex-basis: 100%; }
 }
 a.competition-row:hover { background: var(--panel); }
